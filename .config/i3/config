@@ -219,9 +219,9 @@ bindsym $mod+r mode "resize"
 
 # I am using i3blocks here, with its own scripts in this directory
 bar {
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        :x
-:x
+	#status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	status_command i3status
+
 	colors{
         	background #232323
 	        statusline #DCDCDC
@@ -229,14 +229,13 @@ bar {
 	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 	font pango:DejaVu Sans Mono 11
 	workspace_buttons yes 
-	workspace_min_width 50
+	workspace_min_width 45
 }
 
 
 #bar {
 #        i3bar_command exec /home/archy/.config/lemonbar/lemonbar.sh 
 #}
-
 
 
 #exec --no-startup-id xsetroot -solid "#819fac"
