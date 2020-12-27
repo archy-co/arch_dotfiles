@@ -31,10 +31,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Use pactl to adjust volume in PulseAudio.
+# Use pactl to adjust volume in PulseAudio. sound
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -46,7 +46,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 3
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -174,7 +175,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 new_window pixel 0
 
-
+# compton for workspaces transition animations, background images, opacity / transparency
+bindsym $mod+c exec compton
 
 
 bindsym $mod+e exec telegram-desktop
@@ -182,7 +184,7 @@ bindsym $mod+w exec firefox
 
 
 
-#exec-always feh --bg-fill ~/Pictures/Wallpapers/external-content.duckduckgo.com.jpg
+# exec-always feh --bg-fill ~/Pictures/Wallpapers/external-content.duckduckgo.com.jpg
 
 exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/desktop_wallpapers.jpg
 
@@ -218,20 +220,21 @@ bindsym $mod+r mode "resize"
 
 
 # I am using i3blocks here, with its own scripts in this directory
-bar {
-	#status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	status_command i3status
+#bar {
+#	#status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#	status_command i3status
+#
+#	colors{
+#        	background #232323
+#	        statusline #DCDCDC
+#        }
+#	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#	font pango:DejaVu Sans Mono 11
+#	workspace_buttons yes 
+#	workspace_min_width 45
+#}
 
-	colors{
-        	background #232323
-	        statusline #DCDCDC
-        }
-	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-	font pango:DejaVu Sans Mono 11
-	workspace_buttons yes 
-	workspace_min_width 45
-}
-
+exec_always --no-startup-id /home/archy/.config/polybar/launch.sh
 
 #bar {
 #        i3bar_command exec /home/archy/.config/lemonbar/lemonbar.sh 
@@ -239,10 +242,12 @@ bar {
 
 
 #exec --no-startup-id xsetroot -solid "#819fac"
-default_border pixel 1
+#default_border pixel 1
 
-bindsym $mod+g gaps inner all toggle 15; gaps outer all toggle 1
-#gaps inner 15
+bindsym $mod+g gaps inner all toggle 11; gaps outer all toggle 1; gaps top all toggle 60
+
+gaps top 60
+#gaps inner 5
 #gaps outer 5
 #gaps inner all set 10
 #gaps outer all set 10

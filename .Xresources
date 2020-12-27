@@ -5,6 +5,8 @@ URxvt.font: xft:DejaVu Sans Mono:pixelsize=16:weight=bold
 URxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=16:weight=bold
 !URxvt.font:     xft:xos4 Terminus:size=10:antialias=true
 !URxvt.boldFont:     xft:xos4 Terminus:bold:size=10:antialias=true
+!URxvt.font:               xft:monospace:size=10, xft:Noto Emoji
+
 
 
 
