@@ -35,7 +35,6 @@ font-1=FontAwesome5Free:style=Regular:size=11:antialias=true;3
 font-2=FontAwesome5Free:style=Solid:size=11:antialias=true;3
 font-3=IPAGothic:style=Regular:size=11:antialias=true;3
 
-
 height = 45
 ;radius = 20
 ;Works very well with a ;radius like this! Put it on every bar.
@@ -50,14 +49,14 @@ wm-restack = i3
 inherit = bar/base
 width = 15%
 
-foreground = ${colors.color1}
+foreground = #000000
 background = #00000000
 
 offset-x = 10
 
 
 ;modules-left = i3 wsnumber xwindow
-modules-left = i3 wsnumber xwindow
+modules-left = i3 xwindow
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -113,12 +112,15 @@ label-foreground = ${colors.color3}
 label-background = ${colors.background} 
 label-padding = 2
 
+scroll-up = i3 workspace next
+scroll-down = i3 workspace prev
+
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
 format-padding = 1
 format-background = ${colors.color3}
-format-foreground = ${colors.background}
+format-foreground = ${colors.color2}
 index-sort = true
 wrapping-scroll = false
 
@@ -135,7 +137,7 @@ label-unfocused-font = 2
 label-unfocused-padding = 1
 label-unfocused-foreground = ${colors.background}
 
-label-urgent = 
+label-urgent =  
 label-urgent-font = 1
 label-urgent-padding = 1
 label-urgent-foreground = ${colors.background}
@@ -217,13 +219,14 @@ label-background = ${colors.background}
 [module/battery]
 type = internal/battery
 format-charging-foreground = ${colors.color3}
+
 format-discharging-margin = 1
 format-charging-margin = 1
-format-discharging-padding = 1
-format-charging-padding = 1
+format-full-margin = 1
+
 format-discharging-foreground = ${colors.color3}
-format-full-margin = 2
 format-full-foreground = ${colors.color3}
+
 full-at = 99
 time-format = %H:%M
 battery = BAT1
@@ -237,18 +240,21 @@ format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %percentage%%
 label-discharging-foreground = ${colors.color3}
 format-full = <label-full>
-label-charging-padding = 1
-label-discharging-padding = 1
+label-charging-padding-left = 1
+label-discharging-padding-left = 1
 ;label-charging-underline = ${colors.tertiary}
 ;label-discharging-underline = ${colors.tertiary}
 
 
-format-full-prefix = ""
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-padding-left = 2
+
+
+format-full-prefix = "  "
+ramp-capacity-0 =   
+ramp-capacity-1 =   
+ramp-capacity-2 =   
+ramp-capacity-3 =   
+ramp-capacity-4 =   
 
 ramp-capacity-0-foreground = ${colors.color3}
 ramp-capacity-foreground   = ${colors.color3}

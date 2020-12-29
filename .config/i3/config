@@ -94,7 +94,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # execute xkill
-bindsym $mod+x exec xkill
+bindsym --release $mod+x exec xkill
 
 # screenshot printscreen
 bindsym $mod+Print exec gnome-screenshot -a

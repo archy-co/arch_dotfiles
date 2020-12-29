@@ -50,4 +50,5 @@ urxvt-perls/
 .config/pulse
 .vim*
 .Xauthority
+.pyenv/
 
