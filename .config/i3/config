@@ -176,7 +176,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 new_window pixel 0
 
 # compton for workspaces transition animations, background images, opacity / transparency
-bindsym $mod+c exec compton
+# bindsym $mod+c exec compton
+exec --no-startup-id compton
 
 
 bindsym $mod+e exec telegram-desktop
@@ -244,7 +245,7 @@ exec_always --no-startup-id /home/archy/.config/polybar/launch.sh
 #exec --no-startup-id xsetroot -solid "#819fac"
 #default_border pixel 1
 
-bindsym $mod+g gaps inner all toggle 11; gaps outer all toggle 1; gaps top all toggle 60
+bindsym $mod+g gaps inner all toggle 20; gaps outer all toggle 1; gaps top all toggle 50; gaps top all plus 5
 
 gaps top 60
 #gaps inner 5
