@@ -4,4 +4,3 @@ TODO:
 Image preview in terminal
 Configure mpd audio player and ncmpcpp or whatever is required to play music
 Widgets, desktop widgets about laptop state
-Disable that awful error sound in kitty terminal
