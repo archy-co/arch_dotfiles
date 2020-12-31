@@ -1,4 +1,5 @@
-# ARCH + i3-gaps wm
+# RICE
+## Arch + i3-gaps
 
 TODO:
 Image preview in terminal
