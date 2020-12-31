@@ -47,13 +47,12 @@ wm-restack = i3
 
 [bar/i3]
 inherit = bar/base
-width = 15%
+width = 20%
 
 foreground = #000000
 background = #00000000
 
 offset-x = 10
-
 
 ;modules-left = i3 wsnumber xwindow
 modules-left = i3 xwindow
@@ -107,10 +106,10 @@ scroll-down = i3 workspace prev
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:50:...%
+label = %title:0:25:...%
 label-foreground = ${colors.color3} 
 label-background = ${colors.background} 
-label-padding = 2
+label-padding = 3
 
 scroll-up = i3 workspace next
 scroll-down = i3 workspace prev
@@ -242,6 +241,7 @@ label-discharging-foreground = ${colors.color3}
 format-full = <label-full>
 label-charging-padding-left = 1
 label-discharging-padding-left = 1
+label-full-padding-left = 1
 ;label-charging-underline = ${colors.tertiary}
 ;label-discharging-underline = ${colors.tertiary}
 
@@ -249,7 +249,8 @@ label-discharging-padding-left = 1
 ramp-capacity-padding-left = 2
 
 
-format-full-prefix = "  "
+format-full-prefix =   
+format-full-prefix-padding-left = 1
 ramp-capacity-0 =   
 ramp-capacity-1 =   
 ramp-capacity-2 =   
