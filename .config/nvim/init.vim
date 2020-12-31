@@ -15,6 +15,17 @@ Plug 'vim-syntastic/syntastic'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'preservim/nerdtree'
 
+
+" airline - status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Nord vim color sheme (some colors are not well enough)
+Plug 'arcticicestudio/nord-vim'
+
+" Tender vim color sheme
+Plug 'jacoborus/tender.vim'
+
 " checks for syntax. takes to long after saving, lags for a couple of secs
 "Plug 'vim-syntastic/syntastic'
 
@@ -23,3 +34,7 @@ Plug 'preservim/nerdtree'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+"setting colorsheme to be nord
+colorscheme nord
+
