@@ -85,7 +85,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+o split h
+bindsym $mod+semicolon split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -97,7 +97,8 @@ bindsym $mod+f fullscreen toggle
 bindsym --release $mod+x exec xkill
 
 # screenshot printscreen
-bindsym $mod+Print exec gnome-screenshot -a
+bindsym $mod+Print exec gnome-screenshot
+bindsym $mod+Shift+Print exec gnome-screenshot -a
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -182,6 +183,7 @@ exec --no-startup-id compton
 
 bindsym $mod+e exec telegram-desktop
 bindsym $mod+w exec firefox
+bindsym $mod+o exec md.obsidian.Obsidian
 
 
 
