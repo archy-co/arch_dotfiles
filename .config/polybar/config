@@ -331,6 +331,10 @@ format-width = 45
 label-layout = %layout:4:4%
 label-layout-underline = ${colors.secondary}
 
+;label-layout-background-0 = #ef53d2
+;label-layout-background-1 = #ef53d2
+;label-layout-background-2 = #ef53d2
+
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
