@@ -83,7 +83,7 @@ offset-x = 80.5%
 
 ;tray-position = right
 
-modules-left = battery temperature pulseaudio time power
+modules-left = xkeyboard battery temperature pulseaudio time power
 
 ;                      _       _           
 ;  _ __ ___   ___   __| |_   _| | ___  ___ 
@@ -292,11 +292,6 @@ label-font = 0
 
 
 
-
-
-
-
-
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -322,9 +317,21 @@ ramp-foreground = ${colors.foreground-alt}
 
 
 
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
 
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-width = 45
 
+label-layout = %layout:4:4%
+label-layout-underline = ${colors.secondary}
 
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
 
 
 

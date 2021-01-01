@@ -36,5 +36,5 @@ Plug 'jacoborus/tender.vim'
 call plug#end()
 
 "setting colorsheme to be nord
-colorscheme nord
+colorscheme tender
 
