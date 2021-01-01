@@ -257,7 +257,10 @@ ramp-capacity-2 = 
 ramp-capacity-3 =   
 ramp-capacity-4 =   
 
-ramp-capacity-0-foreground = ${colors.color3}
+; colors for low and critical battery 
+ramp-capacity-0-foreground = #f96185
+ramp-capacity-1-foreground = #fca9c9
+
 ramp-capacity-foreground   = ${colors.color3}
 bar-capacity-width = 10
 
