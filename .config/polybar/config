@@ -357,18 +357,26 @@ type = internal/pulseaudio
 
 format-volume-padding = 2
 format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage:3:3%%
+label-volume = %percentage:4:4%%
 format-volume-background = ${colors.color3}
 format-volume-foreground = ${colors.background}
 use-ui-max = false
 interval = 5
 
-ramp-volume-0 = "   "
-ramp-volume-1 = "  "
-ramp-volume-2 = " "
+ramp-volume-0 = "  "
+ramp-volume-1 = " "
+ramp-volume-2 = ""
+
+;ramp-volume-0 =🔈
+;ramp-volume-1 =🔉
+;ramp-volume-2 =🔊
 
 
-label-muted = "     "   
+
+ramp-volume-font = 2
+
+
+label-muted = "    "   
 label-muted-background = ${colors.background}
 label-muted-foreground = ${colors.color3}
 label-muted-padding = 5
