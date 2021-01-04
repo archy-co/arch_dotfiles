@@ -6,6 +6,22 @@ map <C-c><C-c> :set rnu nu<CR>
 map <C-b><C-b> :set nornu nonu<CR>
 set rnu nu
 
+" by default, d moves text to default register 
+" following two lines make d move text to black hole register, which means it won't
+" be saved in default register and p won't put it after that.
+
+nnoremap x "_x
+
+nnoremap <leader>d ""d
+vnoremap <leader>d ""d
+nnoremap <leader>x ""x
+vnoremap <leader>x ""x
+
+
+
+let mapleader="\<SPACE>"
+
+
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
@@ -16,6 +32,11 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'preservim/nerdtree'
 
 
+" Markdown for README.md
+Plug 'tpope/vim-markdown'
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
 " airline - status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -25,6 +46,10 @@ Plug 'arcticicestudio/nord-vim'
 
 " Tender vim color sheme
 Plug 'jacoborus/tender.vim'
+
+" Highlight only section under cursor (e.g. Function, Loop or single line if
+" no context)
+" Plug 'junegunn/limelight.vim'
 
 " checks for syntax. takes to long after saving, lags for a couple of secs
 "Plug 'vim-syntastic/syntastic'
