@@ -34,6 +34,8 @@ font-0=SF Mono:size=11:antialias=true;3
 font-1=FontAwesome5Free:style=Regular:size=11:antialias=true;3
 font-2=FontAwesome5Free:style=Solid:size=11:antialias=true;3
 font-3=IPAGothic:style=Regular:size=11:antialias=true;3
+font-4=Monoisome:style=Regular:size=12:antialias=true;3
+font-5=FreeMono:style=Bold:size=12:antialias=true;3
 
 height = 45
 ;radius = 20
@@ -106,10 +108,11 @@ scroll-down = i3 workspace prev
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:25:...%
+label = %title:25:25%
 label-foreground = ${colors.color3} 
 label-background = ${colors.background} 
 label-padding = 3
+label-font = 6
 
 scroll-up = i3 workspace next
 scroll-down = i3 workspace prev
@@ -313,9 +316,10 @@ label-warn-background = ${colors.color2}
 label-padding = 4
 label-warn-padding = 4
 
-ramp-0 = ""
-ramp-1 = ""
-ramp-2 = ""
+ramp-0 = ""
+;ramp-0 = ""
+;ramp-1 = ""
+;ramp-2 = ""
 ramp-foreground = ${colors.foreground-alt}
 
 
@@ -324,7 +328,8 @@ ramp-foreground = ${colors.foreground-alt}
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+;format-prefix = " "
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 format-width = 45
 
@@ -356,31 +361,27 @@ label-indicator-underline = ${colors.secondary}
 type = internal/pulseaudio
 
 format-volume-padding = 2
-format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage:4:4%%
+format-volume = <ramp-volume><label-volume>
+label-volume = %percentage:3:3%%
+label-volume-padding = 1
+label-volume-font = 6
 format-volume-background = ${colors.color3}
 format-volume-foreground = ${colors.background}
 use-ui-max = false
 interval = 5
 
-ramp-volume-0 = "  "
-ramp-volume-1 = " "
+ramp-volume-0 = ""
+ramp-volume-1 = ""
 ramp-volume-2 = ""
 
-;ramp-volume-0 =🔈
-;ramp-volume-1 =🔉
-;ramp-volume-2 =🔊
+ramp-volume-font = 5
 
 
-
-ramp-volume-font = 2
-
-
-label-muted = "    "   
+label-muted = "    "
+label-muted-padding = 4
+label-muted-font = 6
 label-muted-background = ${colors.background}
 label-muted-foreground = ${colors.color3}
-label-muted-padding = 5
-label-muted-width = 45
 
 ;Spotify modules
 
