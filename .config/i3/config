@@ -116,6 +116,7 @@ bindsym $mod+a focus parent
 
 
 
+#exec_always "setxkbmap -layout us,ua -option grp:ctrl_alt_toggle"
 exec_always "setxkbmap -layout us,ua,ca -option grp:ctrl_alt_toggle"
 
 
@@ -184,6 +185,9 @@ exec --no-startup-id compton
 bindsym $mod+e exec telegram-desktop
 bindsym $mod+w exec firefox
 bindsym $mod+o exec md.obsidian.Obsidian
+
+# toggle keyboard layouts (add/remove ca)
+bindsym $mod+m exec ~/.config/scripts/toggle_layouts.sh; restart
 
 
 

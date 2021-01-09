@@ -36,6 +36,7 @@ font-2=FontAwesome5Free:style=Solid:size=11:antialias=true;3
 font-3=IPAGothic:style=Regular:size=11:antialias=true;3
 font-4=Monoisome:style=Regular:size=12:antialias=true;3
 font-5=FreeMono:style=Bold:size=12:antialias=true;3
+font-6=JP Medium:style=Medium,Regular:size=12:antialias=true;3
 
 height = 45
 ;radius = 20
@@ -372,7 +373,7 @@ interval = 5
 
 ramp-volume-0 = ""
 ramp-volume-1 = ""
-ramp-volume-2 = ""
+ramp-volume-2 = "🔊"
 
 ramp-volume-font = 5
 
