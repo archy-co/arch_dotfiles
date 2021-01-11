@@ -22,6 +22,7 @@ background = ${xrdb:color0:#222}
 color1 = ${xrdb:color2}
 color2 = ${xrdb:color4}
 color3 = ${xrdb:color6}
+dark = #222222
 
 ;  _                    
 ; | |__   __ _ _ __ ___ 
@@ -58,7 +59,7 @@ background = #00000000
 offset-x = 10
 
 ;modules-left = i3 wsnumber xwindow
-modules-left = i3 xwindow
+modules-left = i3 wsnumber xwindow
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -99,10 +100,11 @@ type = custom/script
 exec = ~/.config/polybar/get_workspace
 tail = true
 interval = 0.5
-format = "<label>  "
-format-padding = 0
+format = "<label> "
+format-padding = 1
 format-foreground = ${colors.background}
 format-background = ${colors.color3}
+format-font = 6
 scroll-up = i3 workspace next
 scroll-down = i3 workspace prev
 
@@ -132,18 +134,18 @@ reverse-scroll = false
 
 label-focused =  
 label-focused-font = 3
-label-focused-foreground = ${colors.background}
+label-focused-foreground = ${colors.dark}
 label-focused-padding = 1
 
 label-unfocused =  
 label-unfocused-font = 2
 label-unfocused-padding = 1
-label-unfocused-foreground = ${colors.background}
+label-unfocused-foreground = ${colors.dark}
 
 label-urgent =  
 label-urgent-font = 1
 label-urgent-padding = 1
-label-urgent-foreground = ${colors.background}
+label-urgent-foreground = ${colors.dark}
 
 ;ws-icon-0 = 1;
 ;ws-icon-1 = 2;
@@ -335,7 +337,8 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-width = 45
 
 label-layout = %layout:4:4%
-label-layout-underline = ${colors.secondary}
+label-layout-foreground = ${colors.color3}
+;label-layout-underline = ${colors.secondary}
 
 ;label-layout-background-0 = #ef53d2
 ;label-layout-background-1 = #ef53d2
@@ -367,7 +370,8 @@ label-volume = %percentage:3:3%%
 label-volume-padding = 1
 label-volume-font = 6
 format-volume-background = ${colors.color3}
-format-volume-foreground = ${colors.background}
+;format-volume-foreground = ${colors.background}
+format-volume-foreground = ${colors.dark}
 use-ui-max = false
 interval = 5
 

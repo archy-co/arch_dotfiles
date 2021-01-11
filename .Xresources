@@ -59,7 +59,7 @@ URxvt.urlButton: 1
 *.cursorColor:  #cf9af9
 
 ! black
-*.color0:       #000000
+*.color0:       #952A015F
 *.color8:       #000000
 
 ! red
