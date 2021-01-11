@@ -52,4 +52,7 @@ urxvt-perls/
 .Xauthority
 .pyenv/
 covid.csv
+.config/vlc
+.config/Kitware
+
 

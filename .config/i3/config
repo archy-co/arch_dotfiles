@@ -116,8 +116,8 @@ bindsym $mod+a focus parent
 
 
 
-#exec_always "setxkbmap -layout us,ua -option grp:ctrl_alt_toggle"
-exec_always "setxkbmap -layout us,ua,ca -option grp:ctrl_alt_toggle"
+exec_always "setxkbmap -layout us,ua -option grp:ctrl_alt_toggle"
+#exec_always "setxkbmap -layout us,ua,ca -option grp:ctrl_alt_toggle"
 
 
 
