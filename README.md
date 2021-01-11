@@ -16,9 +16,12 @@ This rice is far from being comfortable to use and beautiful. But it will define
 * Image preview in terminal
 * Fix problems and configure mpd audio player and ncmpcpp or whatever is required to play music and make it visible in polybar
 * Desktop widgets about laptop state - core temperature, maybe some notifications from mail, telegram ...
-* Polybar: Create one more section with network status and language (maybe before or after workspaces bar)
+* Polybar: one more section with network status, language and cpu usage (maybe before or after workspaces bar)
 * Fix problem with libicu dependencies
 * Mount partition I forgon on installation (curently missing 150G))))
+* Vim like shortcuts in htop
+* touchpad config
+* dmenu with style
 
 
 ## To Contribute?
