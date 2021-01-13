@@ -13,15 +13,19 @@ This rice is far from being comfortable to use and beautiful. But it will define
 
 
 ## TODO:
-* Image preview in terminal
-* Fix problems and configure mpd audio player and ncmpcpp or whatever is required to play music and make it visible in polybar
-* Desktop widgets about laptop state - core temperature, maybe some notifications from mail, telegram ...
-* Polybar: one more section with network status, language and cpu usage (maybe before or after workspaces bar)
-* Fix problem with libicu dependencies
-* Mount partition I forgon on installation (curently missing 150G))))
-* Vim like shortcuts in htop
-* touchpad config
+* find a way to cast screen to TV (gnome-network-displays)
+
 * dmenu with style
+* touchégg startup on system booting
+* Image preview in terminal
+* git auto authorization in terminal so that I don't have to type in username and passwd every time I push
+
+* Fix problem with libicu dependencies
+* Fix problems and configure mpd audio player and ncmpcpp or whatever is required to play music and make it visible in polybar
+
+* Mount partition I forgon on installation (curently missing 150G))))
+* Polybar: one more section with network status, language and cpu usage (maybe before or after workspaces bar)
+* Vim like shortcuts in htop
 
 
 ## To Contribute?
