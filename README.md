@@ -19,6 +19,7 @@ This rice is far from being comfortable to use and beautiful. But it will define
 * touchégg startup on system booting
 * Image preview in terminal
 * git auto authorization in terminal so that I don't have to type in username and passwd every time I push
+* links are not working in most of programs (e.g. Telegram, MS Teams, Gnome Software, etc links)
 
 * Fix problem with libicu dependencies
 * Fix problems and configure mpd audio player and ncmpcpp or whatever is required to play music and make it visible in polybar
