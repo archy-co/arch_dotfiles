@@ -1,7 +1,7 @@
 # RICE
 ##  Arch + i3-gaps
-***
-This rice is far from being comfortable to use and beautiful. But it will definetly improve as I am working to make it fast, clear, nice looking, perfectly comfortable and handy for me. This is just some notes for me :)
+
+This rice is far from being comfortable to use and beautiful. But it will definetly improve as I am working to make it fast, clear, nice looking, perfectly comfortable and handy for me. Here's some notes for me :)
 
 ## Table of content
 
