@@ -21,6 +21,10 @@ This rice is far from being comfortable to use and beautiful. But it will define
 * Image preview in terminal
 * git auto authorization in terminal so that I don't have to type in username and passwd every time I push
 * links are not working in most of programs (e.g. Telegram, MS Teams, Gnome Software, etc links)
+* fix not working conkys
+* install and configure music visualizer e.g. cava
+* change notes in conky
+* change comand to open fff
 
 
 * add in main dotfiles repo folder with conkys with link to the conkys repo
@@ -30,10 +34,14 @@ This rice is far from being comfortable to use and beautiful. But it will define
 * Fix problems and configure mpd audio player and ncmpcpp or whatever is required to play music and make it visible in polybar
 
 
+* Startup some programs in i3 config when system is booting
 * Mount partition I forgon on installation (curently missing 150G))))
-* Rewrite toggle-layout script in some normal language or as bash script; to solve troubles, cause be asynchronicity, try reloading config in script as execution of shortcuts with some delay
+* Rewrite toggle-layout script in some normal language or completely as a bash script
 * Polybar: one more section with network status, language and cpu usage (maybe before or after workspaces bar)
+* Polybar: make apppearence of battery module more distinguishable when it is charging (now it looks quite similar to when it is not charging)
 * Vim like shortcuts in htop
+* Change login screen (when booting system)
+* change that bar style when quiting i3 with shortcuts
 
 
 ## To Contribute?
@@ -42,7 +50,10 @@ This rice is far from being comfortable to use and beautiful. But it will define
 
 
 ## To Learn
-Vim registers
+* Vim registers
+* NERD Tree navigation
+* fff
+* Github from terminal, GitHub CLI
 
 ## Appearence
 ![Desktop](https://raw.githubusercontent.com/archy-co/arch_dotfiles/main/Pictures/desktop_preview.png)

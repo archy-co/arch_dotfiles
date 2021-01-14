@@ -177,7 +177,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 new_window pixel 0
 
-# compton for workspaces transition animations, background images, opacity / transparency
+# compton for workspaces transition animations, background images, opacity/transparency, shades, etc.
 # bindsym $mod+c exec compton
 exec --no-startup-id compton
 
@@ -186,14 +186,14 @@ bindsym $mod+e exec telegram-desktop
 bindsym $mod+w exec firefox
 bindsym $mod+o exec md.obsidian.Obsidian
 
-# touchpad
-exec_always --no-startup-id touchegg --daemon; touchegg
+# touchpad controls with touchegg
+exec --no-startup-id ~/.config/scripts/touchegg.sh
 
 # conky
 exec --no-startup-id ~/blood-and-milk/Application.sh
 
 # toggle keyboard layouts (add/remove ca)
-bindsym $mod+m exec ~/.config/scripts/toggle_layouts.sh; restart
+bindsym $mod+m exec ~/.config/scripts/toggle_layouts.sh
 
 
 
