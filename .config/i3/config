@@ -187,7 +187,8 @@ bindsym $mod+w exec firefox
 bindsym $mod+o exec md.obsidian.Obsidian
 
 # touchpad controls with touchegg
-exec --no-startup-id ~/.config/scripts/touchegg.sh
+exec --no-startup-id touchegg --daemon
+exec --no-startup-id touchegg
 
 # conky
 exec --no-startup-id ~/blood-and-milk/Application.sh
