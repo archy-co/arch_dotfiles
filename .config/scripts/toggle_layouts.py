@@ -1,29 +1,12 @@
-def read_and_change(path:str):
-    lines = []
+def read_and_change(path: str):
     with open(path, 'r') as config:
-        for line in config:
-            
-            if '-layout' in line and 'grp:ctrl_alt_toggle' in line:
-                print(line, end='')
-                if line[0] == '#':
-                    line = line[1:]
-                    print('****', line, end='')
-                else:
-                    line = '#'+line
-                    print('####', line, end='')
-                print(line, end='')
-            lines.append(line)
-    return lines
+        return [line if not ('-layout' in line and 'grp:ctrl_alt_toggle' in line) else line[1:] if line[0]=='#' else '#'+line for line in config]
 
-def write_new_config(path:str, lines:list):
+def write_new_config(path: str, lines: list):
     with open(path, 'w') as new_config:
-        for line in lines:
-            #print(line, end='')
-            new_config.write(line)
+        [new_config.write(line) for line in lines]
 
-def toggle_layouts(path):
-    alt_lines = read_and_change(path)
-    write_new_config(path, alt_lines)
-
+def toggle_layouts(path: str):
+    write_new_config(path, read_and_change(path))
 
 toggle_layouts('/home/archy/.config/i3/config')
