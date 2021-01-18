@@ -53,7 +53,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec rofi -modi drun,run -show drun
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -268,7 +269,10 @@ exec_always --no-startup-id /home/archy/.config/polybar/launch.sh
 
 bindsym $mod+g gaps inner all toggle 20; gaps outer all toggle 1; gaps top all toggle 50; gaps top all plus 5
 
-gaps top 60
+gaps inner 20
+gaps outer 1
+gaps top 50
+
 #gaps inner 5
 #gaps outer 5
 #gaps inner all set 10
