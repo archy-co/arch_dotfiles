@@ -19,6 +19,8 @@ imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 set rnu nu
 
+set clipboard=unnamedplus
+
 
 set completeopt+=menuone,noinsert,noselect
 let g:mucomplete#enable_auto_at_startup = 1
@@ -46,8 +48,8 @@ call plug#begin(stdpath('data') . 'plugged')
 " Declare the list of plugins.
 "Plug 'tpope/vim-sensible'
 "Plug 'junegunn/seoul256.vim'
-"Plug 'vim-syntastic/syntastic'
-"Plug 'vim-scripts/indentpython.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 
@@ -59,7 +61,7 @@ Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 
 " Commenting
- Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 
 
 " Autocomplete
