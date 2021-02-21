@@ -1,0 +1,91 @@
+!URxvt.font:     xft:Hack:size=8:antialias=true
+!URxvt.boldFont:     xft:Hack:bold:size=8:antialias=true
+
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=16:weight=bold
+URxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=16:weight=bold
+!URxvt.font:     xft:xos4 Terminus:size=10:antialias=true
+!URxvt.boldFont:     xft:xos4 Terminus:bold:size=10:antialias=true
+!URxvt.font:               xft:monospace:size=10, xft:Noto Emoji
+
+
+
+
+URxvt*cursorColor:  #cf9af9
+URxvt*borderColor:  #101010
+URxvt*geometry:  80x21
+URxvt.internalBorder:  10
+URxvt.scrollBar: false
+URxvt.transparent:   true
+URxvt.shading:      10
+URxvt.letterSpace: -2
+URxvt.lineSpace: 2
+URxvt*scrollTtyOutput:  false
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.M-k: command:\033]720;1\007
+URxvt.keysym.M-j: command:\033]721;1\007
+
+
+
+
+!! Common Keybinds for Navigations
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.urlLauncher: firefox
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
+
+
+
+
+*colorUL:           #2aa198
+
+! special
+*.foreground:   #b9b9b9
+*.background:   #3e6466
+*.cursorColor:  #cf9af9
+
+! black
+*.color0:       #952A015F
+*.color8:       #000000
+
+! red
+*.color1:       #fc557c
+*.color9:       #fc557c
+
+! green
+*.color2:       #86f745
+*.color10:      #86f745
+
+! yellow
+*.color3:       #f1fc50
+*.color11:      #f1fc50
+
+! blue (purple)
+*.color4:       #985afc
+*.color12:      #985afc
+
+! magenta
+*.color5:       #489baf
+*.color13:      #489baf
+
+! cyan
+*.color6:       #23fcb7
+*.color14:      #23fcb7
+
+! white
+*.color7:       #FFFFFF
+*.color15:      #FFFFFF
