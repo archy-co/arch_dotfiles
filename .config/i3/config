@@ -189,7 +189,7 @@ exec --no-startup-id touchegg
 exec --no-startup-id ~/blood-and-milk/Application.sh
 
 # background wallpapers feh
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/desktop_wallpapers.jpg
+exec --no-startup-id feh --bg-fill ~/pictures/Wallpapers/desktop_wallpapers.jpg
 
 
 # toggle keyboard layouts (add/remove ca)

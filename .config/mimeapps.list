@@ -12,8 +12,10 @@ text/html=firefox.desktop;
 text/xml=firefox.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
+text/x-arduino=arduino-arduinoide.desktop
+
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-QB0PY0.desktop;
-
-
+text/plain=firefox.desktop;libreoffice-writer.desktop;
+text/x-python=nvim.desktop;
