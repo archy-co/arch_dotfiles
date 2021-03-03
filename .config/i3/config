@@ -97,7 +97,8 @@ bindsym $mod+f fullscreen toggle
 bindsym --release $mod+x exec xkill
 
 # screenshot printscreen
-bindsym $mod+Print exec gnome-screenshot
+for_window [class="Gnome-screenshot" instance="gnome-screenshot"] floating enable
+bindsym $mod+Print exec gnome-screenshot -f ~/pictures/screenshots/screenshot_$(date +%Y-%m-%d_%H:%M:%S).png
 bindsym $mod+Shift+Print exec gnome-screenshot -a
 
 # change container layout (stacked, tabbed, toggle split)
