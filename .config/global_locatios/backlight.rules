@@ -1,0 +1,4 @@
+# /etc/udev/rules.d/backlight.rules
+
+ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="acpi_video0", GROUP="archy", MODE="0664"
+

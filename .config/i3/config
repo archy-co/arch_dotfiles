@@ -40,8 +40,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 
 # bright is script located in .scripts/bright
-bindsym XF86MonBrightnessUp exec bright +
-bindsym XF86MonBrightnessDown exec bright -
+bindsym XF86MonBrightnessUp exec light -A 4
+bindsym XF86MonBrightnessDown exec light -U 4
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
