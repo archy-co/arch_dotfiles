@@ -31,6 +31,24 @@ autocmd FileType python setlocal completeopt-=preview
 
 
 
+
+" Windows
+map <C-k> <C-w>k
+map <C-j> <C-w>j
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+map <C-r>h <C-w><
+map <C-r>l <C-w>>
+map <C-r>k <C-w>+
+map <C-r>j <C-w>-
+
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <M-[> <Esc>
+  tnoremap <C-v><Esc> <Esc>
+endif
+
+
 " by default, d moves text to default register 
 " following two lines make d move text to black hole register, which means it won't
 " be saved in default register and p won't put it after that.
@@ -46,8 +64,8 @@ vnoremap <leader>x ""x
 call plug#begin(stdpath('data') . 'plugged')
 
 " Declare the list of plugins.
-"Plug 'tpope/vim-sensible'
-"Plug 'junegunn/seoul256.vim'
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/seoul256.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'preservim/nerdtree'
@@ -63,7 +81,6 @@ Plug 'mattn/emmet-vim'
 " Commenting
 Plug 'preservim/nerdcommenter'
 
-
 " Autocomplete
 Plug 'lifepillar/vim-mucomplete'
 
@@ -71,17 +88,16 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'davidhalter/jedi-vim'
 
 
-
-
 " Markdown for README.md
-"Plug 'tpope/vim-markdown'
-
+" Plug 'tpope/vim-markdown'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
-"Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+" Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
 
 " airline - status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
 
 " Nord vim color sheme (some colors are not well enough)
 Plug 'arcticicestudio/nord-vim'
@@ -89,16 +105,18 @@ Plug 'arcticicestudio/nord-vim'
 " Tender vim color sheme
 Plug 'jacoborus/tender.vim'
 
-" Highlight only section under cursor (e.g. Function, Loop or single line if
-" no context)
+" Light themes
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+
+
+" Highlight under cursor section (e.g. Function, Loop or single line if no context)
 " Plug 'junegunn/limelight.vim'
 
-" hides lines and some trash content is displayed
-" Plug 'tmhedberg/SimpylFold'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"setting colorsheme to be nord/tender
+"setting colorsheme to be nord/tender/or other
 colorscheme tender
 
