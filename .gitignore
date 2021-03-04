@@ -43,7 +43,9 @@ music
 pictures
 .config/ncmpcpp/error.log
 .config/pulse
+.config/mpd/pid
 .config/mpd/state
+
 
 
 
