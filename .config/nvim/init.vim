@@ -1,8 +1,10 @@
-" Plugins will be downloaded under the specified directory.
 " set leader key
 let mapleader = ","
 let maplocalleader = ","
 
+source ~/.config/nvim/windows.vim
+
+set updatetime=100
 set autoindent
 set tabstop=4
 set shiftwidth=4
@@ -30,18 +32,6 @@ set shortmess+=c
 autocmd FileType python setlocal completeopt-=preview
 
 
-
-
-" Windows
-map <C-k> <C-w>k
-map <C-j> <C-w>j
-map <C-h> <C-w>h
-map <C-l> <C-w>l
-map <C-r>h <C-w><
-map <C-r>l <C-w>>
-map <C-r>k <C-w>+
-map <C-r>j <C-w>-
-
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <M-[> <Esc>
@@ -49,9 +39,8 @@ if has('nvim')
 endif
 
 
-" by default, d moves text to default register 
-" following two lines make d move text to black hole register, which means it won't
-" be saved in default register and p won't put it after that.
+" following lines make d move text to the black hole register, which means it won't
+" be saved in default default register and p won't put it after that.
 
 nnoremap x "_x
 
@@ -70,6 +59,9 @@ Plug 'vim-syntastic/syntastic'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
+
+
+Plug 'airblade/vim-gitgutter'
 
 
 " Close tags html
