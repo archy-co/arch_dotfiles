@@ -69,7 +69,7 @@ bindsym --release $mod+x exec xkill
 
 # screenshot printscreen
 for_window [class="Gnome-screenshot" instance="gnome-screenshot"] floating enable
-bindsym $mod+Print exec gnome-screenshot -f ~/pictures/screenshots/screenshot_$(date +%Y-%m-%d_%H:%M:%S).png
+bindsym $mod+Print exec gnome-screenshot -f ~/pictures/screenshots/scr_shot_$(date +%d-%m_%H:%M:%S).png
 bindsym $mod+Shift+Print exec gnome-screenshot -af ~/pictures/screenshots/screenshot_$(date +%Y-%m-%d_%H:%M:%S).png
 
 # change container layout (stacked, tabbed, toggle split)
@@ -89,8 +89,8 @@ bindsym $mod+a focus parent
 
 
 
-#exec_always "setxkbmap -layout us,ua -option grp:ctrl_alt_toggle"
-exec_always "setxkbmap -layout us,ua,ca -option grp:ctrl_alt_toggle"
+exec_always "setxkbmap -layout us,ua -option grp:ctrl_alt_toggle"
+#exec_always "setxkbmap -layout us,ua,ca -option grp:ctrl_alt_toggle"
 
 
 # border on, see where focus is
@@ -133,6 +133,8 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Tab workspace next
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
