@@ -1,8 +1,8 @@
-" set leader key
 let mapleader = ","
 let maplocalleader = ","
 
 source ~/.config/nvim/windows.vim
+source ~/.config/nvim/cpp.vim
 
 set updatetime=100
 set autoindent
@@ -13,6 +13,7 @@ set expandtab
 
 " NERDTree setup
 autocmd vimenter * NERDTree
+autocmd vimenter * 2wincmd w
 map <C-a> :NERDTreeToggle<CR>
 map <C-c><C-c> :set rnu nu<CR>
 map <C-b><C-b> :set nornu nonu<CR>
@@ -23,6 +24,7 @@ set rnu nu
 
 set clipboard=unnamedplus
 
+set mouse=a
 
 set completeopt+=menuone,noinsert,noselect
 let g:mucomplete#enable_auto_at_startup = 1
@@ -38,8 +40,7 @@ if has('nvim')
   tnoremap <C-v><Esc> <Esc>
 endif
 
-
-" following lines make d move text to the black hole register, which means it won't
+" following lines make <leader> d move text to the black hole register, which means it won't
 " be saved in default default register and p won't put it after that.
 
 nnoremap x "_x
@@ -52,7 +53,6 @@ vnoremap <leader>x ""x
 
 call plug#begin(stdpath('data') . 'plugged')
 
-" Declare the list of plugins.
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/seoul256.vim'
 Plug 'vim-syntastic/syntastic'
@@ -62,6 +62,12 @@ Plug 'jiangmiao/auto-pairs'
 
 
 Plug 'airblade/vim-gitgutter'
+
+Plug 'stevearc/vim-arduino'
+
+
+" Debugger
+Plug 'puremourning/vimspector'
 
 
 " Close tags html
@@ -80,10 +86,9 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'davidhalter/jedi-vim'
 
 
-" Markdown for README.md
-" Plug 'tpope/vim-markdown'
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
-" Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 
 " airline - status bar
@@ -102,13 +107,10 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 
-" Highlight under cursor section (e.g. Function, Loop or single line if no context)
-" Plug 'junegunn/limelight.vim'
-
-
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 "setting colorsheme to be nord/tender/or other
 colorscheme tender
+let g:vimspector_enable_mappings='HUMAN'
 
