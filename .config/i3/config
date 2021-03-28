@@ -2,7 +2,7 @@
 
 set $mod Mod4
 
-font pango:monospace 10
+font pango:monospace 11
 
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
@@ -211,8 +211,8 @@ new_window pixel 0
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #c81fc5 #FF00E9 #ffffff #FF00E9   #FF00E9
-client.focused_inactive #c81fc5 #FF00E9 #ffffff #FF00E9   #FF00E9
+client.focused          #181e1c #00ffae #000000 #00ffae   #FF00E9
+client.focused_inactive #181e1c #00ffae #000000 #00ffae   #FF00E9
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
