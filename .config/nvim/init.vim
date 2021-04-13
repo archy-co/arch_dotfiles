@@ -1,8 +1,14 @@
 let mapleader = ","
 let maplocalleader = ","
+let g:is_resize = 0
 
 source ~/.config/nvim/windows.vim
 source ~/.config/nvim/cpp.vim
+
+
+set nosplitbelow
+set nosplitright
+
 
 set updatetime=100
 set autoindent
@@ -18,7 +24,7 @@ map <C-a> :NERDTreeToggle<CR>
 map <C-c><C-c> :set rnu nu<CR>
 map <C-b><C-b> :set nornu nonu<CR>
 
-imap <c-space> <Plug>(asyncomplete_force_refresh)
+" imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 set rnu nu
 
@@ -60,8 +66,8 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 
-
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 Plug 'stevearc/vim-arduino'
 
@@ -96,21 +102,82 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 
-" Nord vim color sheme (some colors are not well enough)
+" Nord vim color scheme (some colors are not well enough)
 Plug 'arcticicestudio/nord-vim'
 
-" Tender vim color sheme
+" Tender vim color scheme
 Plug 'jacoborus/tender.vim'
+
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 " Light themes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" Plug 'rust-lang/rust.vim'
+" Plug 'racer-rust/vim-racer'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"setting colorsheme to be nord/tender/or other
-colorscheme tender
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""      Airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! ResizeAlert ()
+    return "  RESIZE  "
+endfunction
+
+
+let g:airline#extensions#tabline#enabled = 1
+let airline#extensions#default#section_use_groupitems = 0
+
+call airline#parts#define_function('resize_status', 'ResizeAlert')
+call airline#parts#define_condition('resize_status', 'is_resize == 1')
+call airline#parts#define_accent('resize_status', 'x')
+let g:airline_section_a = airline#section#create(['resize_status', ' ', 'mode', ' '])
+
+"function! AirlineInit()
+  "let g:airline_section_a = airline#section#create(['mode', ' ', 'foo'])
+  "let g:airline_section_b = airline#section#create_left(['ffenc','file'])
+  "let g:airline_section_c = airline#section#create(['%{getcwd()}'])
+"endfunction
+"autocmd User AirlineAfterInit call AirlineInit()
+
+
+" call airline#parts#define_condition('foo', 'getcwd() =~ "work_dir"')
+" call airline#parts#define_accent('foo', 'red')
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Buffer next, buffer previous
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
+
+
+"setting colorscheme to be nord/tender/or other
+" colorscheme seoul
+
+if (has('nvim'))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+endif
+
+if (has('termguicolors'))
+  set termguicolors
+endif
+let g:material_theme_style = 'lighter'
+
 let g:vimspector_enable_mappings='HUMAN'
+
+" colorscheme material
+colorscheme nord
+
+syntax enable
+filetype plugin indent on
+
+
+let $RUST_SRC_PATH="/home/archy/.cargo/bin/rustc"
+let g:racer_insert_paren = 1
 
