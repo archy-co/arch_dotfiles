@@ -46,6 +46,7 @@ pictures
 .config/mpd/pid
 .config/mpd/state
 
+.config/nvim/trash.vim
 
 
 

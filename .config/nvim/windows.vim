@@ -12,6 +12,7 @@ function! ResizeMode ()
     map l <C-w>>
     map k <C-w>+
     map j <C-w>-
+    call airline#update_statusline()
 endfunction
 
 function! ExitResizeMode ()
@@ -22,6 +23,7 @@ function! ExitResizeMode ()
     noremap j j
     map <Esc> <Nop>
     noremap <Esc> <Esc>
+    call airline#update_statusline()
 endfunction
 
 map <silent><leader><C-r> :call ResizeMode()<CR>
@@ -31,7 +33,7 @@ function! SplitTerminal ()
     set splitbelow
     :split
     :terminal
-    :res 16
+    :res 14
     set nosplitbelow
 endfunction
 

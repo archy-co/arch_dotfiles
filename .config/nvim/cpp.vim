@@ -1,1 +1,2 @@
-autocmd FileType cpp nnoremap <buffer> :w :w<Bar>:!gcc % -lstdc++<esc> 
+autocmd BufWritePost *.cpp !gcc % -lstdc++<CR>
+"autocmd  * !run_tests.sh <afile>
