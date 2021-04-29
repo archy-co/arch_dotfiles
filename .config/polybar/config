@@ -22,7 +22,7 @@ background = ${xrdb:color0:#222}
 color1 = ${xrdb:color2}
 color2 = ${xrdb:color4}
 color3 = ${xrdb:color6}
-dark = #222222
+dark = #222229
 
 ;  _                    
 ; | |__   __ _ _ __ ___ 
@@ -40,7 +40,7 @@ font-5=Roboto:style=Regular:size=11:antialias=true;3
 font-6=Noto Sans JP:style=Medium,Regular:size=12:antialias=true;3
 
 height = 45
-;radius = 20
+radius = 20
 ;Works very well with a ;radius like this! Put it on every bar.
 
 background = ${colors.background}
@@ -51,7 +51,7 @@ wm-restack = i3
 
 [bar/i3]
 inherit = bar/base
-width = 20%
+width = 19.85%
 
 foreground = #000000
 background = #00000000
@@ -71,7 +71,7 @@ enable-ipc = true
 width = 28%
 
 foreground = ${colors.color2}
-offset-x = 55.5%
+offset-x = 35.5%
 
 ; Spotify (script at github.com/dietervanhoof/polybar-spotify-controls)
 ;modules-left = previous playpause next spotify
@@ -99,7 +99,7 @@ modules-left = xkeyboard battery temperature pulseaudio time
 [module/wsnumber]
 type = custom/script
 exec = ~/.config/polybar/get_workspace
-tail = true
+tail = false
 interval = 0.5
 format = "<label> "
 format-padding = 1
@@ -112,10 +112,10 @@ scroll-down = i3 workspace prev
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:25:25%
+label = %title:15:18%
 label-foreground = ${colors.color3} 
 label-background = ${colors.background} 
-label-padding = 3
+label-padding = 2
 label-font = 3
 
 scroll-up = i3 workspace next
@@ -165,7 +165,7 @@ content-padding = 2
 type = internal/mpd
 host = 127.0.0.1
 port = 6600
-format-online =  <icon-prev> <toggle> <icon-next>  <label-song><label-time>
+format-online =  <icon-prev> <toggle> <icon-next> <label-song><label-time>
 format-online-padding = 2
 format-online-background = ${colors.color2}
 format-online-foreground = ${colors.background}
@@ -176,8 +176,8 @@ label-time-foreground = ${colors.color2}
 label-time-background = ${colors.background}
 label-time-padding = 1
 
-format-offline = <label-offline>
-label-offline =  offline
+format-offline = "<label-offline>   probably mpd is down"
+label-offline =  
 format-offline-padding = 2
 format-offline-foreground = ${colors.color2}
 format-offline-background = ${colors.background}
@@ -193,7 +193,7 @@ icon-play = 
 icon-pause = 
 icon-next = 
 
-label-song-maxlen = 38
+label-song-maxlen = 33
 label-song-ellipsis = true
 
 [module/time]
@@ -204,11 +204,33 @@ format-margin = 2
 time = "%H:%M:%S"
 date = "%d/%m"
 
-label = %date%, %time%
+;label = %date%, %time%
+label = %{A1:kitty --hold floating_calendar:}%date%, %time% %{A}
 label-font = 6
 label-foreground = ${colors.color3}
 label-background = ${colors.background}
 
+click-left-exec = firefox &
+
+
+
+[module/apps]
+type = custom/menu
+
+menu-0-0 = Browsers
+menu-0-0-exec = #apps.open.1
+menu-0-1 = Multimedia
+menu-0-1-exec = #apps.open.2
+
+menu-1-0 = Firefox
+menu-1-0-exec = firefox &
+menu-1-1 = Chromium
+menu-1-1-exec = chromium &
+
+menu-2-0 = Gimp
+menu-2-0-exec = gimp &
+menu-2-1 = Scrot
+menu-2-1-exec = scrot &
 
 
 
@@ -364,8 +386,9 @@ type = internal/pulseaudio
 format-volume-padding = 1
 format-volume = <ramp-volume><label-volume>
 label-volume = %percentage:3:3%%
+label-volume-minlen = 3
 label-volume-padding = 1
-label-volume-font = 6
+label-volume-font = 4
 format-volume-background = ${colors.color3}
 ;format-volume-foreground = ${colors.background}
 format-volume-foreground = ${colors.dark}
@@ -374,12 +397,13 @@ interval = 5
 
 ramp-volume-0 = ""
 ramp-volume-1 = ""
-ramp-volume-2 = "🔊"
+ramp-volume-2 = ""
+ramp-volume-3 = ""
 
 ramp-volume-font = 5
 
 
-label-muted = "    "
+label-muted = "     "
 label-muted-padding = 3
 label-muted-font = 6
 label-muted-background = ${colors.background}
@@ -403,29 +427,7 @@ type = custom/script
 format-font = 3
 format-padding = 2
 format-background = ${colors.color2}
-format-foreground = ${colors.background}
-exec = echo "  "
 exec-if = "pgrep spotify"
-click-left = "playerctl next"
-
-[module/playpause]
-type = custom/script
-exec = spotifystatus
-exec-if = "pgrep spotify"
-format-font = 3
-format-background = ${colors.color2}
-format-foreground = ${colors.background}
-format-padding = 1
-tail = true
-interval = 0
-click-left = "playerctl -p spotify play-pause"
-
-
-[module/spotify]
-type = custom/script
-exec = playerctl -p spotify metadata --format '{{artist}}: {{title}}'
-exec-if = "pgrep spotify"
-format-padding = 2
 tail = true
 interval = 1
 
