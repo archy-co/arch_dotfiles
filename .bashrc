@@ -9,7 +9,7 @@ alias ls='ls --color=auto'
 alias vim='nvim'
 alias ran='ranger'
 alias dragon='dragon-drag-and-drop'
-alias vifmrun='vifm'
+alias vifm='vifmrun'
 alias f='fff'
 PS1='\u@[\W]\$ '
 
