@@ -70,7 +70,7 @@ bindsym --release $mod+x exec xkill
 # screenshot printscreen
 for_window [class="Gnome-screenshot" instance="gnome-screenshot"] floating enable
 bindsym $mod+Print exec gnome-screenshot -f ~/pictures/screenshots/scr_shot_$(date +%d-%m_%H:%M:%S).png
-bindsym $mod+Shift+Print exec gnome-screenshot -af ~/pictures/screenshots/screenshot_$(date +%Y-%m-%d_%H:%M:%S).png
+bindsym $mod+Shift+Print exec gnome-screenshot -af ~/pictures/screenshots/scr_shot_$(date +%d-%m_%H:%M:%S).png
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -89,8 +89,8 @@ bindsym $mod+a focus parent
 
 
 
-exec_always "setxkbmap -layout us,ua -option grp:ctrl_alt_toggle"
-#exec_always "setxkbmap -layout us,ua,ca -option grp:ctrl_alt_toggle"
+#exec_always "setxkbmap -layout us,ua -option grp:ctrl_alt_toggle"
+exec_always "setxkbmap -layout us,ua,ca -option grp:ctrl_alt_toggle"
 
 
 # border on, see where focus is
@@ -152,7 +152,7 @@ exec --no-startup-id touchegg --daemon
 exec --no-startup-id touchegg
 
 # conky
-exec --no-startup-id ~/blood-and-milk/Application.sh
+# exec --no-startup-id ~/blood-and-milk/Application.sh
 
 # background wallpapers feh
 exec --no-startup-id feh --bg-fill ~/pictures/Wallpapers/desktop_wallpapers.jpg
@@ -167,7 +167,6 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 
 bindsym $mod+e exec telegram-desktop
 bindsym $mod+w exec firefox
-bindsym $mod+o exec obsidian
 bindsym $mod+q exec kitty ranger
 
 
@@ -211,10 +210,10 @@ new_window pixel 0
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #181e1c #00ffae #000000 #00ffae   #FF00E9
-client.focused_inactive #181e1c #00ffae #000000 #00ffae   #FF00E9
+client.focused          #181e1c #00ffae #000000 #fc92e0   #00ffae
+client.focused_inactive #181e1c #00ffae #000000 #fc92e0   #00ffae
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.urgent           #2f343a #fc4649 #ffffff #fc4649   #fc4649
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
