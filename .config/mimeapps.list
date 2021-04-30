@@ -1,4 +1,10 @@
 [Default Applications]
+inode/directory=ranger.desktop
+application/x-extension-htm=userapp-Firefox-R0B3FY.desktop
+application/x-extension-html=userapp-Firefox-R0B3FY.desktop
+application/x-extension-shtml=userapp-Firefox-R0B3FY.desktop
+application/x-extension-xhtml=userapp-Firefox-R0B3FY.desktop
+application/x-extension-xht=userapp-Firefox-R0B3FY.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-QB0PY0.desktop
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/viber=viber.desktop
@@ -13,9 +19,14 @@ text/xml=firefox.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 text/x-arduino=arduino-arduinoide.desktop
-
+text/plain=xvim.desktop
+text/x-c=xvim.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-QB0PY0.desktop;
-text/plain=firefox.desktop;libreoffice-writer.desktop;
+text/plain=xvim.desktop;nvim.desktop;libreoffice-writer.desktop;vim.desktop;firefox.desktop;nvim;
+text/x-c=xvim.desktop;nvim.desktop;
 text/x-python=nvim.desktop;
+application/octet-stream=nvim.desktop;electron.desktop;feh.desktop;firefox.desktop;vim.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+image/jpeg=sxiv.desktop;

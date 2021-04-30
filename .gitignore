@@ -47,7 +47,38 @@ pictures
 .config/mpd/state
 
 .config/nvim/trash.vim
+.config/vifm/scripts/trash
+.config/vifm/vifminfo.json
+.config/vifm/vifm-help.txt
 
+
+.config/Arduino IDE
+.config/arduino-ide
+.config/blender
+.config/cava
+.config/coc
+.config/nvim/spell
+.config/nvim/.ycm_extra_conf.py
+.config/obs-studio
+.config/skypeforlinux
+.config/vimb
+.config/mpd/state
+.config/mpd/database
+
+.moonchild productions
+.profile
+.pylint.d
+.rustup
+.keras/
+.npm/
+.cargo
+.ssh
+.vimperator/
+.vimspector.log
+.waterfox/
+.wpa_cli_history
+.yarnrc
+.scripts/trash
 
 
 .conkyrc
