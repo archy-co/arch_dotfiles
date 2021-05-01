@@ -127,6 +127,8 @@ Plug 'terryma/vim-smooth-scroll'
 
 Plug 'ashisha/image.vim'
 
+Plug 'ryanoasis/vim-devicons'
+
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " Plug 'rust-lang/rust.vim'
@@ -135,7 +137,8 @@ Plug 'ashisha/image.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-
+set encoding=utf8
+let g:airline_powerline_fonts = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""      Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
