@@ -72,6 +72,8 @@ for_window [class="Gnome-screenshot" instance="gnome-screenshot"] floating enabl
 bindsym $mod+Print exec gnome-screenshot -f ~/pictures/screenshots/scr_shot_$(date +%d-%m_%H:%M:%S).png
 bindsym $mod+Shift+Print exec gnome-screenshot -af ~/pictures/screenshots/scr_shot_$(date +%d-%m_%H:%M:%S).png
 
+for_window [class="popup"] floating enable, move absolute position 1690 px 60 px
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+b layout tabbed
@@ -89,8 +91,8 @@ bindsym $mod+a focus parent
 
 
 
-#exec_always "setxkbmap -layout us,ua -option grp:ctrl_alt_toggle"
-exec_always "setxkbmap -layout us,ua,ca -option grp:ctrl_alt_toggle"
+exec_always "setxkbmap -layout us,ua -option grp:ctrl_alt_toggle"
+#exec_always "setxkbmap -layout us,ua,ca -option grp:ctrl_alt_toggle"
 
 
 # border on, see where focus is
@@ -145,7 +147,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Wanna exit i3 and end X sess
 
 
 # compton for workspaces transition animations, background images, opacity/transparency, shades, etc.
-exec --no-startup-id compton
+exec --no-startup-id picom
 
 # touchpad controls with touchegg
 exec --no-startup-id touchegg --daemon
@@ -207,11 +209,12 @@ for_window [class="feh"] floating enable, sticky enable, border pixel 0, move ab
 
 
 new_window pixel 0
+#show_marks yes
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #181e1c #00ffae #000000 #fc92e0   #00ffae
-client.focused_inactive #181e1c #00ffae #000000 #fc92e0   #00ffae
+client.focused          #181e1c #00ffae #000000 #fc4649   #00ffae
+client.focused_inactive #181e1c #00ffae #000000 #fc4649   #00ffae
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #fc4649 #ffffff #fc4649   #fc4649
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
