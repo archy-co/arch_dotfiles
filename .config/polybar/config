@@ -99,6 +99,7 @@ modules-left = xkeyboard battery temperature pulseaudio time
 [module/wsnumber]
 type = custom/script
 exec = ~/.config/polybar/get_workspace
+;exec = ~/.scripts/ueberzug_example.sh
 tail = false
 interval = 0.5
 format = "<label> "
@@ -205,7 +206,7 @@ time = "%H:%M:%S"
 date = "%d/%m"
 
 ;label = %date%, %time%
-label = %{A1:kitty --hold floating_calendar:}%date%, %time% %{A}
+label = %{A1:kitty --class popup -o=initial_window_width=212 -o=initial_window_height=210 --hold cal:}%date%, %time% %{A}
 label-font = 6
 label-foreground = ${colors.color3}
 label-background = ${colors.background}
