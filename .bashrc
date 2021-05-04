@@ -16,3 +16,6 @@ PS1='\u@[\W]\$ '
 export VISUAL=nvim;
 export EDITOR=nvim;
 source "$HOME/.cargo/env"
+source <(kitty + complete setup bash)
+source /usr/share/bash-completion/completions/git
+
