@@ -19,3 +19,5 @@ source "$HOME/.cargo/env"
 source <(kitty + complete setup bash)
 source /usr/share/bash-completion/completions/git
 
+LANG="en_IN.utf8"
+export LANG
