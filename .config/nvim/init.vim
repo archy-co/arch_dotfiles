@@ -21,8 +21,8 @@ set shiftwidth=4
 set expandtab
 
 " NERDTree setup
-autocmd vimenter * NERDTree
-autocmd vimenter * 2wincmd w
+autocmd vimenter *.py,*.cpp,*.vim NERDTree
+autocmd vimenter *.py,*.cpp,*.vim silent 2wincmd w
 map <C-q> :NERDTreeToggle<CR>
 
 " imap <c-space> <Plug>(asyncomplete_force_refresh)
@@ -39,12 +39,13 @@ let g:jedi#popup_on_dot = 0  " It may be 1 as well
 let g:mucomplete#enable_auto_at_startup = 1
 set shortmess+=c
 autocmd FileType python setlocal completeopt-=preview
+" autocmd FileType nerdtree NERDTreeClose
 
 
 if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <M-[> <Esc>
-  tnoremap <C-v><Esc> <Esc>
+  tnoremap <C-[> <C-\><C-n>
+  "tnoremap <M-[> <Esc>
+  "tnoremap <C-v><Esc> <Esc>
 endif
 
 
@@ -56,19 +57,23 @@ vnoremap <leader>d ""d
 nnoremap <leader>x ""x
 vnoremap <leader>x ""x
 
+vnoremap p "_xp
+vnoremap P "_xP
 
 " <leader>a in visual mode selects from the begging of the first line to the
 " end of the last line in selection block
 vnoremap <leader>a o_o$
 
+nnoremap <leader>o o<Esc>
+
 
 call plug#begin(stdpath('data') . 'plugged')
 
-Plug 'tpope/vim-sensible'
+"Plug 'tpope/vim-sensible'
 
 Plug 'junegunn/seoul256.vim'
 
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
@@ -109,7 +114,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'vim-python/python-syntax'
+"Plug 'vim-python/python-syntax'
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'jacoborus/tender.vim'
@@ -128,6 +133,8 @@ Plug 'terryma/vim-smooth-scroll'
 Plug 'ashisha/image.vim'
 
 Plug 'ryanoasis/vim-devicons'
+
+Plug 'mboughaba/i3config.vim'
 
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
@@ -176,7 +183,20 @@ let g:material_theme_style = 'lighter'
 
 " Debugger
 let g:vimspector_enable_mappings='HUMAN'
-map <silent> <leader><C-d> :call vimspector#Launch()<esc>
+map <silent> <leader><C-d> :call VimspectorFullLaunch()<CR>
+
+
+function! VimspectorFullLaunch ()
+    if !filereadable('./.vimspector.json')
+        echo 'No config file, generating...'
+        call GenerateConfig()
+    endif
+    call vimspector#Launch()
+endfunction
+
+function! GenerateConfig ()
+    :! cp /home/archy/.config/nvim/templates/.vimspector.json ./
+endfunction
 
 syntax enable
 filetype plugin indent on
@@ -189,6 +209,7 @@ let g:racer_insert_paren = 1
 
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
+let g:NERDTreeAutoCenter=0
 
 
 let g:material_style='palenight'
@@ -238,6 +259,13 @@ endfunction
 map gm :call SynStack()<CR>
 
 colorscheme onehalfdark
+highlight Normal guibg=Opac
+highlight LineNr guibg=Opac
+highlight GitGutterAdd guibg=Opac
+highlight pythonOperator guifg=#afafff
+"set guifont=Monospace\ 12
+set guifont=*
+
 
 " Smooth scrolling (not quite cool)
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 15, 2)<CR>
@@ -249,10 +277,30 @@ nnoremap <leader><C-l> :SidewaysLeft<cr>
 nnoremap <C-s> :SidewaysRight<cr>
 
 let g:colorizer_maxlines=1000
-set colorcolumn=90
+autocmd FileType python set colorcolumn=95
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""   i3 conf highlight 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+aug end
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nmap <silent> ;s :call ToggleSyntax()<CR>
 
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+let g:user_emmet_leader_key=',<C-E>'
+
 " set source on file vim file configuration change
-autocmd BufWritePost *.vim silent source ~/.config/nvim/init.vim
+" autocmd BufWritePost *.vim silent source ~/.config/nvim/init.vim
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+"autocmd VimResized,BufWinEnter,BufWinLeave,InsertLeave * echo "HI"
+

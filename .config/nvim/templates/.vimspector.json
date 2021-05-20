@@ -1,0 +1,18 @@
+{
+  "configurations": {
+    "name_Launch": {
+      "adapter": "debugpy",
+      "configuration": {
+        "name": "name_Launch",
+        "type": "python",
+        "request": "launch",
+        "cwd": ".",
+        "python": "/usr/bin/python3.9",
+        "stopOnEntry": true,
+        "console": "externalTerminal",
+        "debugOptions": [],
+        "program": "./"
+      }
+    }
+  }
+}
