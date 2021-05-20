@@ -32,7 +32,7 @@ bindsym Shift+XF86MonBrightnessDown exec bright -
 # Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+q kill
 
@@ -167,9 +167,9 @@ bindsym $mod+m exec ~/.scripts/toggle_layouts/toggle_layouts.sh
 # bindcode $mod+40 exec rofi -modi drun,run -show drun
 bindsym $mod+d exec --no-startup-id rofi -show run
 
-bindsym $mod+e exec telegram-desktop
+#bindsym $mod+e exec telegram-desktop
 bindsym $mod+w exec firefox
-bindsym $mod+q exec kitty ranger
+bindsym $mod+q exec alacritty -e vifmrun
 
 
 # resize window
@@ -196,7 +196,7 @@ exec_always --no-startup-id /home/archy/.config/polybar/launch.sh
 
 
 #exec --no-startup-id xsetroot -solid "#819fac"
-#default_border pixel 1
+#default_border pixel 0
 
 bindsym $mod+g gaps inner all toggle 20; gaps outer all toggle 1; gaps top all toggle 50; gaps top all plus 5
 
@@ -208,8 +208,8 @@ gaps top 50
 for_window [class="feh"] floating enable, sticky enable, border pixel 0, move absolute position 0 px 0 px
 
 
-new_window pixel 0
-#show_marks yes
+new_window pixel 2
+show_marks yes
 
 
 # class                 border  backgr. text    indicator child_border
