@@ -258,7 +258,7 @@ function! SynStack ()
 endfunction
 map gm :call SynStack()<CR>
 
-colorscheme onehalfdark
+colorscheme onehalflight
 highlight Normal guibg=Opac
 highlight LineNr guibg=Opac
 highlight GitGutterAdd guibg=Opac
