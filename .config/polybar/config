@@ -18,11 +18,16 @@
 
 [colors]
 
-background = ${xrdb:color0:#222}
-color1 = ${xrdb:color2}
-color2 = ${xrdb:color4}
-color3 = ${xrdb:color6}
-dark = #222229
+;background = ${xrdb:color0:#222}
+;color1 = ${xrdb:color2}
+;color2 = ${xrdb:color4}
+;color3 = ${xrdb:color6}
+dark = #444
+
+background = #eee
+color1 = #333
+color2 = #333
+color3 = #ababab
 
 ;  _                    
 ; | |__   __ _ _ __ ___ 
@@ -71,6 +76,7 @@ enable-ipc = true
 width = 28%
 
 foreground = ${colors.color2}
+background = ${colors.color3}
 offset-x = 35.5%
 
 ; Spotify (script at github.com/dietervanhoof/polybar-spotify-controls)
@@ -104,8 +110,8 @@ tail = false
 interval = 0.5
 format = "<label> "
 format-padding = 1
-format-foreground = ${colors.background}
-format-background = ${colors.color3}
+format-foreground = ${colors.color3}
+format-background = ${colors.background}
 format-font = 4
 scroll-up = i3 workspace next
 scroll-down = i3 workspace prev
@@ -114,8 +120,8 @@ scroll-down = i3 workspace prev
 [module/xwindow]
 type = internal/xwindow
 label = %title:15:18%
-label-foreground = ${colors.color3} 
-label-background = ${colors.background} 
+label-foreground = ${colors.background} 
+label-background = ${colors.color3} 
 label-padding = 2
 label-font = 3
 
@@ -126,7 +132,7 @@ scroll-down = i3 workspace prev
 type = internal/i3
 format = <label-state> <label-mode>
 format-padding = 1
-format-background = ${colors.color3}
+format-background = ${colors.background}
 format-foreground = ${colors.color2}
 index-sort = true
 wrapping-scroll = false
@@ -169,19 +175,19 @@ port = 6600
 format-online =  <icon-prev> <toggle> <icon-next> <label-song><label-time>
 format-online-padding = 2
 format-online-background = ${colors.color2}
-format-online-foreground = ${colors.background}
+format-online-foreground = ${colors.color3}
 label-song-foreground = ${colors.color2}
-label-song-background = ${colors.background}
+label-song-background = ${colors.color3}
 label-song-padding = 2
 label-time-foreground = ${colors.color2}
-label-time-background = ${colors.background}
+label-time-background = ${colors.color3}
 label-time-padding = 1
 
 format-offline = "<label-offline>   probably mpd is down"
 label-offline =  
 format-offline-padding = 2
 format-offline-foreground = ${colors.color2}
-format-offline-background = ${colors.background}
+format-offline-background = ${colors.color3}
 
 bar-progress-width = 35
 bar-progress-indicator = |

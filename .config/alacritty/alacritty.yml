@@ -126,7 +126,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 7.0
+  size: 6.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -155,8 +155,8 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '#5d19a0'
-    foreground: '#fcfcfc'
+    foreground: '#5d19a0'
+    background: '#fcfcfc'
 
     dim_foreground: '#eff0f1'
     bright_foreground: '#ffffff'
@@ -301,7 +301,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.4
+background_opacity: 0.3
 
 selection:
   # This string contains all characters that are used as separators for
