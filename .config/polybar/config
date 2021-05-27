@@ -17,17 +17,12 @@
 ;==========================================================
 
 [colors]
-
-;background = ${xrdb:color0:#222}
-;color1 = ${xrdb:color2}
-;color2 = ${xrdb:color4}
-;color3 = ${xrdb:color6}
 dark = #444
-
 background = #eee
 color1 = #333
 color2 = #333
-color3 = #ababab
+color3 = #000
+color4 = #ababab
 
 ;  _                    
 ; | |__   __ _ _ __ ___ 
@@ -46,7 +41,6 @@ font-6=Noto Sans JP:style=Medium,Regular:size=12:antialias=true;3
 
 height = 45
 radius = 20
-;Works very well with a ;radius like this! Put it on every bar.
 
 background = ${colors.background}
 override-redirect=true
@@ -63,7 +57,6 @@ background = #00000000
 
 offset-x = 10
 
-;modules-left = i3 wsnumber xwindow
 modules-left = i3 wsnumber xwindow
 
 scroll-up = i3wm-wsnext
@@ -76,12 +69,9 @@ enable-ipc = true
 width = 28%
 
 foreground = ${colors.color2}
-background = ${colors.color3}
+background = ${colors.color4}
 offset-x = 35.5%
 
-; Spotify (script at github.com/dietervanhoof/polybar-spotify-controls)
-;modules-left = previous playpause next spotify
-; Mpd
 modules-left = mpd
 
 [bar/tray]
@@ -90,11 +80,8 @@ width = 23%
 
 padding-right = 0
 offset-x = 76.35%
-
-;tray-position = right
-
-;modules-left = xkeyboard battery temperature pulseaudio time power
 modules-left = xkeyboard battery temperature pulseaudio time
+
 
 ;                      _       _           
 ;  _ __ ___   ___   __| |_   _| | ___  ___ 
@@ -105,7 +92,6 @@ modules-left = xkeyboard battery temperature pulseaudio time
 [module/wsnumber]
 type = custom/script
 exec = ~/.config/polybar/get_workspace
-;exec = ~/.scripts/ueberzug_example.sh
 tail = false
 interval = 0.5
 format = "<label> "
@@ -121,7 +107,6 @@ scroll-down = i3 workspace prev
 type = internal/xwindow
 label = %title:15:18%
 label-foreground = ${colors.background} 
-label-background = ${colors.color3} 
 label-padding = 2
 label-font = 3
 
@@ -155,11 +140,6 @@ label-urgent-font = 1
 label-urgent-padding = 1
 label-urgent-foreground = ${colors.dark}
 
-;ws-icon-0 = 1;
-;ws-icon-1 = 2;
-;ws-icon-2 = 3;
-;ws-icon-9 = 10;
-;ws-icon-default = 
 
 [module/power]
 type = custom/text
@@ -168,6 +148,7 @@ content-foreground = ${colors.color3}
 click-left-exec = sudo suspend
 content-padding = 2
 
+
 [module/mpd]
 type = internal/mpd
 host = 127.0.0.1
@@ -175,19 +156,19 @@ port = 6600
 format-online =  <icon-prev> <toggle> <icon-next> <label-song><label-time>
 format-online-padding = 2
 format-online-background = ${colors.color2}
-format-online-foreground = ${colors.color3}
+format-online-foreground = ${colors.color4}
 label-song-foreground = ${colors.color2}
-label-song-background = ${colors.color3}
+label-song-background = ${colors.color4}
 label-song-padding = 2
 label-time-foreground = ${colors.color2}
-label-time-background = ${colors.color3}
+label-time-background = ${colors.color4}
 label-time-padding = 1
 
 format-offline = "<label-offline>   probably mpd is down"
 label-offline =  
 format-offline-padding = 2
 format-offline-foreground = ${colors.color2}
-format-offline-background = ${colors.color3}
+format-offline-background = ${colors.color4}
 
 bar-progress-width = 35
 bar-progress-indicator = |
@@ -203,6 +184,7 @@ icon-next = 
 label-song-maxlen = 33
 label-song-ellipsis = true
 
+
 [module/time]
 type = internal/date
 interval = 10
@@ -210,8 +192,6 @@ format-margin = 2
 
 time = "%H:%M:%S"
 date = "%d/%m"
-
-;label = %date%, %time%
 label = %{A1:kitty --class popup -o=initial_window_width=212 -o=initial_window_height=210 --hold cal:}%date%, %time% %{A}
 label-font = 6
 label-foreground = ${colors.color3}
@@ -220,10 +200,8 @@ label-background = ${colors.background}
 click-left-exec = firefox &
 
 
-
 [module/apps]
 type = custom/menu
-
 menu-0-0 = Browsers
 menu-0-0-exec = #apps.open.1
 menu-0-1 = Multimedia
@@ -238,11 +216,6 @@ menu-2-0 = Gimp
 menu-2-0-exec = gimp &
 menu-2-1 = Scrot
 menu-2-1-exec = scrot &
-
-
-
-
-
 
 
 [module/battery]
@@ -262,10 +235,9 @@ battery = BAT1
 adapter = ADP1
 
 format-charging = <ramp-capacity> <label-charging>
-;label-charging = %percentage%% (%time%)
+label-charging-foreground = #333
 label-charging = %percentage%%
 format-discharging = <ramp-capacity> <label-discharging>
-;label-discharging = %percentage%% (%time%)
 label-discharging = %percentage%%
 label-discharging-foreground = ${colors.color3}
 format-full = <label-full>
@@ -274,12 +246,8 @@ label-discharging-padding-left = 1
 label-full-padding-left = 1
 label-charging-font = 6
 label-discharging-font = 6
-;label-charging-underline = ${colors.tertiary}
-;label-discharging-underline = ${colors.tertiary}
-
 
 ramp-capacity-padding-left = 2
-
 
 format-full-prefix =   
 format-full-prefix-padding-left = 1
@@ -295,36 +263,8 @@ ramp-capacity-1-foreground = #fca9c9
 
 ramp-capacity-foreground   = ${colors.color3}
 bar-capacity-width = 10
-
-;animation-charging-0 = 
-;animation-charging-1 = 
-;animation-charging-2 = 
-;animation-charging-3 = 
-;animation-charging-4 = 
-
 animation-charging-framerate = 750
-
 label-font = 3
-
-; ramp-capacity-0-underline = ${colors.tertiary}
-; ramp-capacity-1-underline = ${colors.tertiary}
-; ramp-capacity-2-underline = ${colors.tertiary}
-; ramp-capacity-3-underline = ${colors.tertiary}
-; ramp-capacity-4-underline = ${colors.tertiary}
-;
-; animation-charging-0-underline = ${colors.tertiary}
-; animation-charging-1-underline = ${colors.tertiary}
-; animation-charging-2-underline = ${colors.tertiary}
-; animation-charging-3-underline = ${colors.tertiary}
-; animation-charging-4-underline = ${colors.tertiary}
-
-; Uncomment these for anmated discharging battery underline
-; ramp-capacity-0-underline = ${colors.primary}
-; ramp-capacity-1-underline = ${colors.primary}
-; ramp-capacity-2-underline = ${colors.tertiary}
-; ramp-capacity-3-underline = ${colors.tertiary}
-; ramp-capacity-4-underline = ${colors.tertiary}
-
 
 
 [module/temperature]
@@ -346,9 +286,6 @@ label-padding = 2
 label-warn-padding = 2
 
 ramp-0 = ""
-;ramp-0 = ""
-;ramp-1 = ""
-;ramp-2 = ""
 ramp-foreground = ${colors.foreground-alt}
 
 
@@ -357,34 +294,16 @@ ramp-foreground = ${colors.foreground-alt}
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-;format-prefix = " "
 format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 format-width = 45
 
 label-layout = %layout:4:4%
 label-layout-foreground = ${colors.color3}
-;label-layout-underline = ${colors.secondary}
-
-;label-layout-background-0 = #ef53d2
-;label-layout-background-1 = #ef53d2
-;label-layout-background-2 = #ef53d2
-
 label-indicator-padding = 1
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
-
-
-
-
-
-
-
-
-
-
-
 
 
 [module/pulseaudio]
@@ -396,8 +315,7 @@ label-volume = %percentage:3:3%%
 label-volume-minlen = 3
 label-volume-padding = 1
 label-volume-font = 4
-format-volume-background = ${colors.color3}
-;format-volume-foreground = ${colors.background}
+format-volume-background = ${colors.color4}
 format-volume-foreground = ${colors.dark}
 use-ui-max = false
 interval = 5
@@ -409,14 +327,12 @@ ramp-volume-3 = ""
 
 ramp-volume-font = 5
 
-
 label-muted = "     "
 label-muted-padding = 3
 label-muted-font = 6
 label-muted-background = ${colors.background}
 label-muted-foreground = ${colors.color3}
 
-;Spotify modules
 
 [module/previous]
 type = custom/script
@@ -440,11 +356,6 @@ interval = 1
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = true
 
 [global/wm]
 margin-top = 0
