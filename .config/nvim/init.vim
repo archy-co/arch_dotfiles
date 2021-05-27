@@ -258,11 +258,13 @@ function! SynStack ()
 endfunction
 map gm :call SynStack()<CR>
 
-colorscheme onehalflight
-highlight Normal guibg=Opac
-highlight LineNr guibg=Opac
-highlight GitGutterAdd guibg=Opac
+colorscheme seoul256-light
+"highlight Normal guibg=Opac
+"highlight LineNr guibg=Opac
+"highlight GitGutterAdd guibg=Opac
 highlight pythonOperator guifg=#afafff
+highlight vimBracket guifg=#00725f
+highlight pythonFunction guifg=#afafff
 "set guifont=Monospace\ 12
 set guifont=*
 
