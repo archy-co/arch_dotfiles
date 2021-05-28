@@ -7,6 +7,7 @@ let g:ycm_global_ycm_extra_conf = './.ycm_extra_conf.py'
 
 source ~/.config/nvim/windows.vim
 source ~/.config/nvim/cpp.vim
+source ~/vim/vim-sensible/plugin/sensible.vim
 
 
 set nosplitbelow
@@ -33,12 +34,12 @@ set clipboard=unnamedplus
 
 set mouse=a
 
-set completeopt+=menuone,noinsert,noselect
-let g:mucomplete#enable_auto_at_startup = 1
-let g:jedi#popup_on_dot = 0  " It may be 1 as well
-let g:mucomplete#enable_auto_at_startup = 1
+"set completeopt+=menuone,noinsert,noselect
+"let g:mucomplete#enable_auto_at_startup = 1
+"let g:jedi#popup_on_dot = 0  " It may be 1 as well
+"let g:mucomplete#enable_auto_at_startup = 1
 set shortmess+=c
-autocmd FileType python setlocal completeopt-=preview
+"autocmd FileType python setlocal completeopt-=preview
 " autocmd FileType nerdtree NERDTreeClose
 
 
@@ -98,10 +99,10 @@ Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdcommenter'
 
 " Autocomplete
-Plug 'lifepillar/vim-mucomplete'
+"Plug 'lifepillar/vim-mucomplete'
 
 " Python autocomplete
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 
 
 " Markdown
@@ -136,7 +137,7 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'mboughaba/i3config.vim'
 
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " Plug 'rust-lang/rust.vim'
 " Plug 'racer-rust/vim-racer'
@@ -183,7 +184,7 @@ let g:material_theme_style = 'lighter'
 
 " Debugger
 let g:vimspector_enable_mappings='HUMAN'
-map <silent> <leader><C-d> :call VimspectorFullLaunch()<CR>
+map <silent><leader><C-d> :call VimspectorFullLaunch()<CR>
 
 
 function! VimspectorFullLaunch ()
@@ -262,9 +263,9 @@ colorscheme seoul256-light
 "highlight Normal guibg=Opac
 "highlight LineNr guibg=Opac
 "highlight GitGutterAdd guibg=Opac
-highlight pythonOperator guifg=#afafff
+highlight pythonOperator guifg=#50fccb
 highlight vimBracket guifg=#00725f
-highlight pythonFunction guifg=#afafff
+highlight pythonFunction guifg=#c2a6ed
 "set guifont=Monospace\ 12
 set guifont=*
 
@@ -302,7 +303,10 @@ let g:user_emmet_leader_key=',<C-E>'
 " set source on file vim file configuration change
 " autocmd BufWritePost *.vim silent source ~/.config/nvim/init.vim
 
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+map <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-"autocmd VimResized,BufWinEnter,BufWinLeave,InsertLeave * echo "HI"
+"autocmd BufEnter * nnoremap <F2> :%bd|e#<CR>
 
+"autocmd VimResized,BufWinEnter,BufWinLeave,InsertLeave * echo 'HI'
+
+colorscheme nord
