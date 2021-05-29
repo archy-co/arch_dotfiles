@@ -3,7 +3,7 @@ let maplocalleader = ","
 let g:is_resize = 0
 
 " set completeopt=longest,menuone
-let g:ycm_global_ycm_extra_conf = './.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = './.ycm_extra_conf.py'
 
 source ~/.config/nvim/windows.vim
 source ~/.config/nvim/cpp.vim
@@ -310,3 +310,11 @@ map <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<
 "autocmd VimResized,BufWinEnter,BufWinLeave,InsertLeave * echo 'HI'
 
 colorscheme nord
+let g:ycm_auto_trigger = 2
+let g:ycm_min_num_of_chars_for_completion = 2
+"let g:ycm_show_diagnostics_ui = 0
+"let g:ycm_echo_current_diagnostic = 0
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+"let g:ycm_max_num_candidates = 50
+"let g:ycm_echo_current_diagnostic = 0
