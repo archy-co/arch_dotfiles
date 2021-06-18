@@ -157,7 +157,9 @@ exec --no-startup-id touchegg
 # exec --no-startup-id ~/blood-and-milk/Application.sh
 
 # background wallpapers feh
-exec --no-startup-id feh --bg-fill ~/pictures/Wallpapers/desktop_wallpapers.jpg
+exec --no-startup-id feh --bg-fill ~/pictures/Wallpapers/cyberpunk_white.jpg
+
+for_window [class="feh"] floating enable, sticky enable, border pixel 0, move absolute position 0 px 0 px
 
 
 # toggle keyboard layouts (add/remove ca)
@@ -194,9 +196,7 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id /home/archy/.config/polybar/launch.sh
 
-
 #exec --no-startup-id xsetroot -solid "#819fac"
-default_border pixel 0
 
 bindsym $mod+g gaps inner all toggle 20; gaps outer all toggle 1; gaps top all toggle 50; gaps top all plus 5
 
@@ -205,11 +205,11 @@ gaps outer 1
 gaps top 50
 
 
-for_window [class="feh"] floating enable, sticky enable, border pixel 0, move absolute position 0 px 0 px
-
-
-#new_window pixel 0
+default_border pixel 0
+new_window pixel 0
 #show_marks yes
+
+for_window [class=".*"] title_format "<span alpha='1'>    %title </span>"
 
 
 # class                 border  backgr. text    indicator child_border
