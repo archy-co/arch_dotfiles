@@ -153,7 +153,7 @@ content-padding = 2
 type = internal/mpd
 host = 127.0.0.1
 port = 6600
-format-online =  <icon-prev> <toggle> <icon-next> <label-song><label-time>
+format-online = "<icon-prev> <toggle> <icon-next>  <label-song><label-time>"
 format-online-padding = 2
 format-online-background = ${colors.color2}
 format-online-foreground = ${colors.color4}
@@ -181,7 +181,8 @@ icon-play = 
 icon-pause = 
 icon-next = 
 
-label-song-maxlen = 33
+label-song-maxlen = 31
+label-song-minlen = 31
 label-song-ellipsis = true
 
 
@@ -222,9 +223,9 @@ menu-2-1-exec = scrot &
 type = internal/battery
 format-charging-foreground = ${colors.color3}
 
-format-discharging-margin = 1
-format-charging-margin = 1
-format-full-margin = 1
+format-discharging-margin = 0
+format-charging-margin = 0
+format-full-margin = 0
 
 format-discharging-foreground = ${colors.color3}
 format-full-foreground = ${colors.color3}
@@ -235,15 +236,22 @@ battery = BAT1
 adapter = ADP1
 
 format-charging = <ramp-capacity> <label-charging>
-label-charging-foreground = #333
+format-charging-background = ${colors.color4}
+label-charging-foreground = ${colors.color2}
 label-charging = %percentage%%
 format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %percentage%%
 label-discharging-foreground = ${colors.color3}
 format-full = <label-full>
+
 label-charging-padding-left = 1
 label-discharging-padding-left = 1
 label-full-padding-left = 1
+
+label-charging-padding-right = 2
+label-discharging-padding-right = 2
+label-full-padding-right = 2
+
 label-charging-font = 6
 label-discharging-font = 6
 
@@ -272,18 +280,20 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 45
 
-format = <ramp> <label>
+format = <label>
 format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
+format-warn = <label-warn>
 format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
 label-foreground = ${colors.color3}
-label-warn-foreground = ${colors.color3}
+label-warn-foreground = ${colors.color4}
 label-warn-background = ${colors.color2}
 label-padding = 2
 label-warn-padding = 2
+label-font = 6
+label-warn-font = 6
 
 ramp-0 = ""
 ramp-foreground = ${colors.foreground-alt}
@@ -298,7 +308,7 @@ format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 format-width = 45
 
-label-layout = %layout:4:4%
+label-layout = "%layout:4:4% "
 label-layout-foreground = ${colors.color3}
 label-indicator-padding = 1
 label-indicator-margin = 1
