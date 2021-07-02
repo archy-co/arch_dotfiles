@@ -1,2 +1,2 @@
-autocmd BufWritePost *.cpp !gcc % -lstdc++<CR>
+autocmd FileType cpp nnoremap Q :!gcc % -lstdc++ -lm<CR>
 "autocmd  * !run_tests.sh <afile>

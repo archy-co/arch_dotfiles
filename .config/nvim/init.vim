@@ -7,7 +7,7 @@ let g:is_resize = 0
 
 source ~/.config/nvim/windows.vim
 source ~/.config/nvim/cpp.vim
-source ~/vim/vim-sensible/plugin/sensible.vim
+"source ~/vim/vim-sensible/plugin/sensible.vim
 
 
 set nosplitbelow
@@ -74,7 +74,7 @@ call plug#begin(stdpath('data') . 'plugged')
 
 Plug 'junegunn/seoul256.vim'
 
-"Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
@@ -115,7 +115,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-"Plug 'vim-python/python-syntax'
+Plug 'vim-python/python-syntax'
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'jacoborus/tender.vim'
@@ -266,8 +266,38 @@ colorscheme seoul256-light
 highlight pythonOperator guifg=#50fccb
 highlight vimBracket guifg=#00725f
 highlight pythonFunction guifg=#c2a6ed
-"set guifont=Monospace\ 12
-set guifont=*
+highlight pythonAttribute guifg=#c2a6ed
+highlight vimMapModKey guifg=#c2a6ed
+
+highlight! link cBlock cppBlock
+highlight! link cStorageClass cppStorageClass
+highlight! link FunctionDecl javascriptFuncKeyword
+highlight! link CXXMethod javascriptMethod
+highlight! link Variable Normal
+highlight! link EnumConstant Member
+highlight! link Member javascriptProperty
+highlight! link Namespace ClassDecl
+highlight! link StructDecl ClassDecl
+highlight! link UnionDecl ClassDecl
+highlight! link EnumDecl ClassDecl
+highlight! link ClassDecl javascriptClassName
+highlight! link cStructure cppStructure
+highlight! link NamespaceRef Type
+highlight! link TypeRef javascriptVariable
+highlight! link cParen javascriptBraces
+
+highlight cppType guifg=#c2a6ed
+highlight cppBlock guifg=#c2a6ed
+highlight cppExceptions guifg=#c2a6ed
+highlight cppModifier guifg=#c2a6ed
+highlight cppStructure guibg=#c2a6ed
+highlight cppStorageClass guifg=#c2a6ed
+
+"set guifont=Monospace:h20
+"set guifont=GoMono\ Nerd\ Font\ 4
+set guifont=Monoisome\ 10
+"set guifontset=Monoisome\ 20
+" set guifont=*
 
 
 " Smooth scrolling (not quite cool)
@@ -318,3 +348,10 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 "let g:ycm_max_num_candidates = 50
 "let g:ycm_echo_current_diagnostic = 0
+let g:ycm_goto_buffer_command = 'same-buffer'
+
+set completeopt-=preview
+
+highlight PythonKeyword guifg=#b8b0fc
+"match PythonKeyword /self\|maze/
+match PythonKeyword /self/

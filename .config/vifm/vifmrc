@@ -538,7 +538,7 @@ nnoremap <c-u> <c-w>x
 
 
 nnoremap ,gh :cd ~/<cr>
-nnoremap ,go :cd ~/documents/UCU/OP/<cr>
+nnoremap ,go :cd ~/documents/UCU/OP/exam_tasks<cr>
 nnoremap ,gv :cd ~/.config/nvim/<cr>
 nnoremap ,gu :cd ~/documents/UCU<cr>
 nnoremap ,gr :cd /<cr>
@@ -546,6 +546,7 @@ nnoremap ,gi :cd ~/.config/i3<cr>
 nnoremap ,gf :cd ~/.config/vifm<cr>
 nnoremap ,gc :cd ~/.config/<cr>
 nnoremap ,ge :cd ~/documents/fr<cr>
+nnoremap ,gd :cd ~/documents/UCU/DM/alu/l4logic<cr>
 nnoremap ,<space> :!zsh<cr>
 
 highlight Win ctermbg=-1
@@ -555,6 +556,7 @@ highlight TopLine ctermbg=-1 ctermfg=lightblue
 highlight TopLineSel ctermbg=-1 ctermfg=lightblue
 highlight StatusLine ctermbg=-1 ctermfg=lightblue
 highlight StatusLine ctermbg=-1 ctermfg=lightcoral
-highlight CurrLine ctermfg=black
+"highlight CurrLine ctermfg=black
+"highlight Win ctermfg=black
 
 nnoremap <C-D> :!dragon-drag-and-drop -a -x %f & <cr>
