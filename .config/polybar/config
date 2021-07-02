@@ -83,7 +83,7 @@ modules-left = mpd
 
 [bar/options]
 inherit = bar/base
-width = 4%
+width = 4.5%
 
 padding-right = 0
 offset-x = 70%
@@ -458,7 +458,7 @@ unknown-as-up = true
 format-connected = <ramp-signal>
 format-connected-padding-left = 1
 
-ramp-signal-padding-left = 1
+ramp-signal-padding-left = 2
 format-connected-foreground = #000
 format-disconnected-foreground = #000
 
@@ -508,6 +508,9 @@ label-disconnected = "%{A1:networkmanager_dmenu &:} Offline%{A}"
 ;ramp-signal-0 = 
 ;ramp-signal-1 = 2
 ;ramp-signal-2 = 3
+
+
+ramp-signal-font = 8
 
 ramp-signal-0 = 
 ramp-signal-1 = 
