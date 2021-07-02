@@ -27,8 +27,8 @@ configuration {
   kb-row-down:        "Control+j,Control+n,Down";
   kb-accept-entry:    "Return";
   kb-remove-to-eol:   "";
-  kb-row-up:          "Control+k,Control+p,Up";
-  terminal:           "kitty";
+  kb-row-up:          "Control+k,Control+p,Up,Control+Alt+Tab";
+  terminal:           "alacritty";
 }
 
 /** Design based on slate theme: https://github.com/davatorium/rofi-themes/blob/master/User%20Themes/slate.rasi **/

@@ -91,8 +91,8 @@ bindsym $mod+a focus parent
 
 
 
-exec_always "setxkbmap -layout us,ua -option grp:ctrl_alt_toggle"
-#exec_always "setxkbmap -layout us,ua,ca -option grp:ctrl_alt_toggle"
+exec_always "setxkbmap -layout us,ua -option grp:alt_space_toggle"
+#exec_always "setxkbmap -layout us,ua,ca -option grp:alt_space_toggle"
 
 
 # border on, see where focus is
@@ -153,11 +153,13 @@ exec --no-startup-id picom
 exec --no-startup-id touchegg --daemon
 exec --no-startup-id touchegg
 
+exec --no-startup-id stalonetray
+
 # conky
 # exec --no-startup-id ~/blood-and-milk/Application.sh
 
 # background wallpapers feh
-exec --no-startup-id feh --bg-fill ~/pictures/Wallpapers/cyberpunk_white.jpg
+exec_always --no-startup-id feh --bg-fill ~/pictures/Wallpapers/scifi_wp.jpg
 
 for_window [class="feh"] floating enable, sticky enable, border pixel 0, move absolute position 0 px 0 px
 
@@ -207,9 +209,9 @@ gaps top 50
 
 default_border pixel 0
 new_window pixel 0
-#show_marks yes
+show_marks no
 
-for_window [class=".*"] title_format "<span alpha='1'>    %title </span>"
+for_window [class=".*"] title_format "<span>    %title </span>"
 
 
 # class                 border  backgr. text    indicator child_border
