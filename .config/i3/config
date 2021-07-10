@@ -91,8 +91,8 @@ bindsym $mod+a focus parent
 
 
 
-exec_always "setxkbmap -layout us,ua -option grp:alt_space_toggle"
-#exec_always "setxkbmap -layout us,ua,ca -option grp:alt_space_toggle"
+exec_always "setxkbmap -layout us,ua -option grp:alt_shift_toggle"
+#exec_always "setxkbmap -layout us,ua,ca -option grp:alt_shift_toggle"
 
 
 # border on, see where focus is
@@ -137,6 +137,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
