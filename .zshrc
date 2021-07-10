@@ -7,7 +7,7 @@ export ZSH="/home/archy/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="lambda"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -58,7 +58,7 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 # export EDITOR='vim'
 # else
-# export EDITOR='mvim'
+export EDITOR='vim'
 # fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -95,4 +95,9 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1024
 SAVEHIST=768
 # End of lines configured by zsh-newuser-install
-#
+
+
+alias vifm="vifmrun"
+export VIMRUNTIME=/usr/share/vim/vim82
+export VIMRUNTIMEDIR=/usr/share/vim/vim82
+
