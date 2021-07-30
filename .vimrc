@@ -1,24 +1,31 @@
+let g:arduino_telescope_enabled = 0
 set nocompatible
-" set runtimepath=~/.vim,~/.vim/plugged/YouCompleteMe,/usr/share/vim/vimfiles,/usr/share/vim/vim82
 set runtimepath=~/.vim,/usr/share/vim/vimfiles,/usr/share/vim/vim82
-
 
 set updatetime=100
 
+" fix that strange error with mouse hovering
+" (https://stackoverflow.com/questions/43533302/e349-no-identifier-under-cursor)
+" set ttymouse=
+set mouse=a
+nnoremap ^] <Nop>
 
 let mapleader = ","
 let maplocalleader = ","
 
 let g:is_resize = 0
-source ~/.config/nvim/windows.vim
+" source ~/.config/nvim/windows.vim
 
 set rnu nu
 set clipboard=unnamedplus
 set tabstop=4
+set expandtab
 set shiftwidth=4
 
 set splitbelow
 set splitright
+
+set hls
 
 " syntax on
 " filetype on
@@ -32,15 +39,32 @@ call plug#begin('~/.vim/plugged')
  " Plug 'Valloric/YouCompleteMe'
  Plug 'tpope/vim-sensible'
  Plug 'vim-airline/vim-airline'
- Plug 'sonph/onehalf', { 'rtp': 'vim' }
  Plug 'airblade/vim-gitgutter'
  Plug 'tpope/vim-fugitive'
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
  Plug 'junegunn/fzf.vim'
+ Plug 'sonph/onehalf', { 'rtp': 'vim' }
  Plug 'morhetz/gruvbox' 								" colorscheme
+ Plug 'stevearc/vim-arduino'
+ " Plug 'Raimondi/delimitMate'
+ Plug 'jiangmiao/auto-pairs'
+ Plug 'tpope/vim-surround'
+ Plug 'puremourning/vimspector'
+ Plug 'ilyachur/cmake4vim'
+
+ Plug 'preservim/tagbar'
+
+ " Plug 'folke/lsp-colors.nvim'
+ " Plug 'kyazdani42/nvim-web-devicons'
+ " Plug 'folke/trouble.nvim'
+
+ " Plug 'prabirshrestha/async.vim'
+ " Plug 'prabirshrestha/vim-lsp'
 call plug#end()
 
+" Tagbar shortcut
+map <silent><space>t :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""    YCM
@@ -59,7 +83,23 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nmap <leader>f <Plug>(coc-fix-current)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+inoremap <silent><expr> <c-space> coc#refresh()
+" nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
 " inoremap <silent><expr> <TAB>
 inoremap <silent><expr> <C-l>
@@ -80,6 +120,9 @@ nmap <silent> <C-]> <Plug>(coc-definition)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""    Airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! ResizeStatus(...)
     let builder = a:1
     let context = a:2
@@ -91,14 +134,59 @@ function! ResizeStatus(...)
     return 0
 endfunction
 
-call airline#add_statusline_func('ResizeStatus')
-call airline#add_inactive_statusline_func('ResizeStatus')
+silent call airline#add_statusline_func('ResizeStatus')
+silent call airline#add_inactive_statusline_func('ResizeStatus')
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""    Arduino
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:arduino_use_cli = 1
+let g:arduino_args = '--verbose'
+" let g:arduino_auto_baud = 1
+let g:arduino_serial_port = '/dev/ttyUSB0'
+let g:arduino_serial_port_globs = ['/dev/ttyUSB*']
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""    Debuger
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+nnoremap <leader>K <Plug>VimspectorBalloonEval
+nnoremap <F4> :VimspectorReset <CR>
+packadd! vimspector
+
+map <silent><space>c :call GenerateConfig()<CR>
+function! GenerateConfig ()
+    if !filereadable('./.vimspector.json')
+        echo 'No config file, generating...'
+        :! cp /home/archy/.vim/.vimspector.json ./
+    else
+        echo 'Config file already exists. Delete it if you want to have a new one.'
+    endif
+endfunction
+
+
+let g:vimspector_sign_priority = {
+  \    'vimspectorBP':         999,
+  \    'vimspectorBPCond':     998,
+  \    'vimspectorBPDisabled': 997,
+  \ }
+
+
+" json comments highlight
+syn region jsonComment start="/\*" end="\*/"
+hi link jsonCommentError Comment
+hi link jsonComment Comment
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
-set t_Co=256
 set cursorline
 colorscheme onehalfdark
+colorscheme gruvbox
+let g:gruvbox_guisp_fallback = 'bg'
 let g:airline_theme='onehalfdark'
 
 if exists('+termguicolors')
