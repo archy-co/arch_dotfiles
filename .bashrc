@@ -21,3 +21,7 @@ source /usr/share/bash-completion/completions/git
 
 LANG="en_IN.utf8"
 export LANG
+
+export VIMRUNTIME=/usr/share/vim/vim82
+export VIMRUNTIMEDIR=/usr/share/vim/vim82
+
