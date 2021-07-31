@@ -98,6 +98,4 @@ SAVEHIST=768
 
 
 alias vifm="vifmrun"
-export VIMRUNTIME=/usr/share/vim/vim82
-export VIMRUNTIMEDIR=/usr/share/vim/vim82
-
+alias vim="VIMRUNTIME=/usr/share/vim/vim82 vim"

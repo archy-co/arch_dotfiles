@@ -27,6 +27,16 @@ set splitright
 
 set hls
 
+""" Break undo """
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap { {<c-g>u
+inoremap } }<c-g>u
+inoremap ( (<c-g>u
+inoremap ) )<c-g>u
+""""""""""""""""""
+
+
 " syntax on
 " filetype on
 " filetype plugin indent on
