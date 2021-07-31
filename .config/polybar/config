@@ -17,11 +17,14 @@
 ;==========================================================
 
 [colors]
-dark = #444
+dark = #333
+black = #222
+light = #ddd
+purple = #a62dfc
 background = #eee
-color1 = #333
-color2 = #333
-color3 = #000
+color1 = #b86ed3
+color2 = #ea79db
+color3 = #4a4cc9
 color4 = #ababab
 
 [bar]
@@ -85,6 +88,8 @@ modules-left = mpd
 inherit = bar/base
 width = 4.5%
 
+background = ${colors.black}
+
 padding-right = 0
 offset-x = 70%
 modules-left = network xkeyboard
@@ -97,6 +102,8 @@ width = 24.5%
 padding-right = 0
 offset-x = 74.85%
 modules-left = battery cpu_bar temperature pulseaudio time
+
+background = ${colors.black}
 
 ;                      _       _           
 ;  _ __ ___   ___   __| |_   _| | ___  ___ 
@@ -111,8 +118,8 @@ tail = false
 interval = 0.5
 format = "<label> "
 format-padding = 1
-format-foreground = ${colors.color3}
-format-background = ${colors.background}
+format-foreground = ${colors.color1}
+format-background = ${colors.dark}
 format-font = 4
 scroll-up = i3 workspace next
 scroll-down = i3 workspace prev
@@ -133,8 +140,8 @@ scroll-down = i3 workspace prev
 type = internal/i3
 format = <label-state> <label-mode>
 format-padding = 1
-format-background = ${colors.background}
-format-foreground = ${colors.color2}
+format-background = ${colors.dark}
+format-foreground = ${colors.color1}
 index-sort = true
 wrapping-scroll = false
 
@@ -143,13 +150,13 @@ reverse-scroll = false
 
 label-focused =  
 label-focused-font = 3
-label-focused-foreground = ${colors.dark}
+label-focused-foreground = ${colors.color1}
 label-focused-padding = 1
 
 label-unfocused =  
 label-unfocused-font = 2
 label-unfocused-padding = 1
-label-unfocused-foreground = ${colors.dark}
+label-unfocused-foreground = ${colors.color1}
 
 label-urgent =  
 label-urgent-font = 1
@@ -171,19 +178,19 @@ host = 127.0.0.1
 port = 6600
 format-online = "<icon-prev> <toggle> <icon-next>  <label-song><label-time>"
 format-online-padding = 2
-format-online-background = ${colors.color2}
-format-online-foreground = ${colors.color4}
+format-online-background = ${colors.dark}
+format-online-foreground = ${colors.purple}
 label-song-foreground = ${colors.color2}
 label-song-background = #20000000
 label-song-padding = 2
-label-time-foreground = ${colors.color2}
+label-time-foreground = ${colors.color1}
 label-time-background = #20000000
 label-time-padding = 0
 
 format-offline = "<label-offline>   probably mpd is down"
 label-offline =  
 format-offline-padding = 2
-format-offline-foreground = ${colors.color2}
+format-offline-foreground = ${colors.color1}
 ;format-offline-background = ${colors.color4}
 
 bar-progress-width = 35
@@ -211,8 +218,8 @@ time = "%H:%M:%S"
 date = "%d/%m"
 label = %{A1:kitty --class popup -o=initial_window_width=212 -o=initial_window_height=210 --hold cal:}%date%, %time% %{A}
 label-font = 6
-label-foreground = ${colors.color3}
-label-background = ${colors.background}
+label-foreground = ${colors.color1}
+label-background = ${colors.black}
 
 click-left-exec = firefox &
 
@@ -252,12 +259,13 @@ battery = BAT1
 adapter = ADP1
 
 format-charging = <ramp-capacity> <label-charging>
-format-charging-background = ${colors.color4}
-label-charging-foreground = ${colors.color2}
+format-charging-background = ${colors.black}
+label-charging-foreground = ${colors.color4}
 label-charging = %percentage%%
 format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %percentage%%
-label-discharging-foreground = ${colors.color3}
+label-discharging-foreground = ${colors.color4}
+format-discharging-background = ${colors.dark}
 format-full = <label-full>
 
 label-charging-padding-left = 1
@@ -285,7 +293,7 @@ ramp-capacity-4 = 
 ramp-capacity-0-foreground = #f96185
 ramp-capacity-1-foreground = #fca9c9
 
-ramp-capacity-foreground   = ${colors.color3}
+ramp-capacity-foreground = ${colors.color4}
 bar-capacity-width = 10
 animation-charging-framerate = 750
 label-font = 3
@@ -294,7 +302,7 @@ label-font = 3
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 45
+warn-temperature = 46
 
 format = <label>
 format-underline = #f50a4d
@@ -303,16 +311,21 @@ format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-foreground = ${colors.color3}
-label-warn-foreground = ${colors.color4}
-label-warn-background = ${colors.color2}
+label-foreground = ${colors.color1}
+label-background = ${colors.dark}
+label-warn-foreground = ${colors.color2}
+label-warn-background = ${colors.black}
 label-padding = 2
 label-warn-padding = 2
 label-font = 6
 label-warn-font = 6
 
-ramp-0 = ""
-ramp-foreground = ${colors.foreground-alt}
+ramp-0 = ""
+ramp-1 = ""
+ramp-2 = ""
+ramp-3 = ""
+ramp-4 = ""
+ramp-foreground = ${colors.color3}
 
 
 
@@ -321,11 +334,11 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.color1}
 format-width = 45
 
 label-layout = "%layout:4:4% "
-label-layout-foreground = ${colors.color3}
+label-layout-foreground = ${colors.color1}
 label-indicator-padding = 1
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
@@ -341,8 +354,9 @@ label-volume = %percentage:3:3%%
 label-volume-minlen = 3
 label-volume-padding = 1
 label-volume-font = 4
-format-volume-background = ${colors.color4}
-format-volume-foreground = ${colors.dark}
+;format-volume-background = ${colors.black}
+format-volume-background = ${colors.dark}
+format-volume-foreground = ${colors.color4}
 use-ui-max = false
 interval = 5
 
@@ -356,8 +370,8 @@ ramp-volume-font = 5
 label-muted = "     "
 label-muted-padding = 3
 label-muted-font = 6
-label-muted-background = ${colors.background}
-label-muted-foreground = ${colors.color3}
+label-muted-background = ${colors.black}
+label-muted-foreground = ${colors.color4}
 
 
 
@@ -375,10 +389,11 @@ interval = 0.5
 ;   <ramp-coreload>
 ;;format = <label> <ramp-coreload>
 format = <bar-load> <label>
+format-background = ${colors.dark}
 format-padding = 1
 format-prefix = ""
 format-font = 0
-format-prefix-foreground = ${colors.color3}
+format-prefix-foreground = ${colors.purple}
 
 ; Available tokens:
 ;   %percentage% (default) - total cpu load averaged over all cores
@@ -386,7 +401,7 @@ format-prefix-foreground = ${colors.color3}
 ;   %percentage-cores% - load percentage for each core
 ;   %percentage-core[1-9]% - load percentage for specific core
 label = "%percentage:2:2%%"
-label-foreground = ${colors.color3}
+label-foreground = ${colors.color1}
 label-padding-right = 1
 
 ; Only applies if <bar-load> is used
@@ -459,8 +474,8 @@ format-connected = <ramp-signal>
 format-connected-padding-left = 1
 
 ramp-signal-padding-left = 2
-format-connected-foreground = #000
-format-disconnected-foreground = #000
+format-connected-foreground = ${colors.color1}
+format-disconnected-foreground = ${colors.color1}
 
 ; Available tags:
 ;   <label-disconnected> (default)
