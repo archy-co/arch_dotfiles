@@ -21,6 +21,7 @@ dark = #333
 black = #222
 light = #ddd
 purple = #a62dfc
+purple_op = #70a62dfc
 background = #eee
 color1 = #b86ed3
 color2 = #ea79db
@@ -62,7 +63,7 @@ inherit = bar/base
 width = 19.85%
 
 foreground = #000000
-background = #40000000
+background = ${colors.purple_op}
 
 offset-x = 10
 
@@ -78,7 +79,7 @@ enable-ipc = true
 width = 28%
 
 foreground = ${colors.color2}
-background = #20000000
+background = ${colors.color3}
 offset-x = 35.5%
 
 modules-left = mpd
@@ -129,7 +130,7 @@ scroll-down = i3 workspace prev
 type = internal/xwindow
 label = %title:15:28%
 label-foreground = ${colors.background} 
-label-background = #40000000 
+;label-background = ${colors.color4}
 label-padding = 2
 label-font = 3
 
@@ -181,17 +182,17 @@ format-online-padding = 2
 format-online-background = ${colors.dark}
 format-online-foreground = ${colors.purple}
 label-song-foreground = ${colors.color2}
-label-song-background = #20000000
+label-song-background = ${colors.color3}
 label-song-padding = 2
 label-time-foreground = ${colors.color1}
-label-time-background = #20000000
+label-time-background = ${colors.color3}
 label-time-padding = 0
 
 format-offline = "<label-offline>   probably mpd is down"
 label-offline =  
 format-offline-padding = 2
 format-offline-foreground = ${colors.color1}
-;format-offline-background = ${colors.color4}
+format-offline-background = ${colors.color3}
 
 bar-progress-width = 35
 bar-progress-indicator = |
