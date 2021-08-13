@@ -1,5 +1,3 @@
-## /etc/sudoers
-
 ## sudoers file.
 ##
 ## This file MUST be edited with the 'visudo' command as root.
@@ -83,6 +81,9 @@ root ALL=(ALL) ALL
 
 ## Uncomment to allow members of group wheel to execute any command
 %wheel ALL=(ALL) ALL
+%wheel ALL = (root) NOPASSWD: /usr/bin/wpa-cute
+%wheel ALL = (root) NOPASSWD: /usr/bin/wpa_cli
+%wheel ALL = (root) NOPASSWD: /usr/bin/killall
 
 ## Same thing without a password
 # %wheel ALL=(ALL) NOPASSWD: ALL
