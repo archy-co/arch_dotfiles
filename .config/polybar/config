@@ -21,7 +21,7 @@ dark = #333
 black = #222
 light = #ddd
 purple = #a62dfc
-purple_op = #70a62dfc
+purple_op = #40a62dfc
 background = #eee
 color1 = #b86ed3
 color2 = #ea79db
@@ -528,9 +528,14 @@ label-disconnected = "%{A1:networkmanager_dmenu &:} Offline%{A}"
 
 ramp-signal-font = 8
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
+; label = "%{A1:sudo wpa-cute &:}%percentage:2:2%%{A}"
+ramp-signal-0 =  "%{A1:wpa-cutee &:}%{A}"
+ramp-signal-1 =  "%{A1:wpa-cutee &:}%{A}"
+ramp-signal-2 =  "%{A1:wpa-cutee &:}%{A}"
+
+; ramp-signal-0 =  
+; ramp-signal-1 = 
+; ramp-signal-2 = 
 
 
 ; Only applies if <animation-packetloss> is used
