@@ -99,3 +99,6 @@ SAVEHIST=768
 
 alias vifm="vifmrun"
 alias vim="VIMRUNTIME=/usr/share/vim/vim82 vim"
+alias wpa-cute="sudo /usr/bin/wpa-cute"
+alias wpa_cli="sudo /usr/bin/wpa_cli"
+alias killall="/usr/bin/killall"
