@@ -95,8 +95,8 @@ bindsym $mod+a focus parent
 
 
 
-exec_always "setxkbmap -layout us,ua -option grp:alt_shift_toggle"
-#exec_always "setxkbmap -layout us,ua,ca -option grp:alt_shift_toggle"
+#exec_always "setxkbmap -layout us,ua -option grp:alt_shift_toggle"
+exec_always "setxkbmap -layout us,ua,ca -option grp:alt_shift_toggle"
 
 
 # border on, see where focus is
@@ -152,19 +152,19 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Wanna exit i3 and end X sess
 
 
 # compton for workspaces transition animations, background images, opacity/transparency, shades, etc.
-exec --no-startup-id picom
+exec_always --no-startup-id picom --experimental-backends --daemon
 
 # touchpad controls with touchegg
 exec --no-startup-id touchegg --daemon
 exec --no-startup-id touchegg
 
-exec --no-startup-id stalonetray
+# exec --no-startup-id stalonetray
 
 # conky
 # exec --no-startup-id ~/blood-and-milk/Application.sh
 
 # background wallpapers feh
-exec_always --no-startup-id feh --bg-fill ~/pictures/Wallpapers/scifi_wp.jpg
+exec_always --no-startup-id feh --bg-fill ~/pictures/Wallpapers/cyberpunk.jpg
 
 for_window [class="feh"] floating enable, sticky enable, border pixel 0, move absolute position 0 px 0 px
 
@@ -215,8 +215,9 @@ gaps top 50
 default_border pixel 0
 new_window pixel 0
 show_marks no
+exec_always border none
 
-for_window [class=".*"] title_format "<span>    %title </span>"
+for_window [class=".*"] title_format "%title"
 
 
 # class                 border  backgr. text    indicator child_border

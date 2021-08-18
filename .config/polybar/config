@@ -84,6 +84,51 @@ offset-x = 35.5%
 
 modules-left = mpd
 
+[bar/notifications]
+inherit = bar/base
+width = 2%
+height = 33
+offset-y = 16
+
+background = ${colors.black}
+
+padding-right = 0
+offset-x = 67.75%
+modules-center = xkeyboard
+; Position of the system tray window
+; If empty or undefined, tray support will be disabled
+; NOTE: A center aligned tray will cover center aligned modules
+;
+; Available positions:
+;   left
+;   center
+;   right
+;   none
+tray-position = right
+
+; If true, the bar will not shift its
+; contents when the tray changes
+tray-detached = false
+
+; Tray icon max size
+tray-maxsize = 22
+
+; Background color for the tray container 
+; ARGB color (e.g. #f00, #ff992a, #ddff1023)
+; By default the tray container will use the bar
+; background color.
+tray-background = ${color.background}
+
+; Tray offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
+tray-offset-x = 0
+tray-offset-y = 0
+
+; Pad the sides of each tray icon
+tray-padding = 0
+
+; Scale factor for tray clients
+tray-scale = 1.0
+
 
 [bar/options]
 inherit = bar/base
@@ -112,6 +157,7 @@ background = ${colors.black}
 ; | | | | | | (_) | (_| | |_| | |  __/\__ \
 ; |_| |_| |_|\___/ \__,_|\__,_|_|\___||___/
                                          
+
 [module/wsnumber]
 type = custom/script
 exec = ~/.config/polybar/get_workspace
@@ -481,7 +527,7 @@ format-disconnected-foreground = ${colors.color1}
 ; Available tags:
 ;   <label-disconnected> (default)
 format-disconnected = <label-disconnected>
-format-disconnected-prefix = 
+;format-disconnected-prefix = "%{A1:wpa-cutee &:}%{A}"
 
 ; Available tags:
 ;   <label-connected> (default)
@@ -504,7 +550,7 @@ label-connected = "%{A1:networkmanager_dmenu &:}%essid%%{A}"
 ; Available tokens:
 ;   %ifname%    [wireless+wired]
 ; Default: (none)
-label-disconnected = "%{A1:networkmanager_dmenu &:} Offline%{A}"
+label-disconnected = "  %{A1:wpa-cutee &:}%{A}"
 ;;label-disconnected-foreground = #66ffffff
 
 ; Available tokens:

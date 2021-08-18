@@ -9,6 +9,8 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # polybar -rq dummy & 
 
 # polybar -rq music &
+polybar -rq notifications &
+sleep 1
 polybar -rq tray &
 polybar -rq options &
 polybar -rq i3 &
