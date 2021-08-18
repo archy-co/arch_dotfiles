@@ -9,6 +9,7 @@ set updatetime=100
 " set ttymouse=
 set mouse=a
 nnoremap ^] <Nop>
+nnoremap Y yg_
 
 let mapleader = ","
 let maplocalleader = ","
@@ -46,7 +47,6 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 call plug#begin('~/.vim/plugged')
- " Plug 'Valloric/YouCompleteMe'
  Plug 'tpope/vim-sensible'
  Plug 'vim-airline/vim-airline'
  Plug 'airblade/vim-gitgutter'
@@ -56,14 +56,16 @@ call plug#begin('~/.vim/plugged')
  Plug 'junegunn/fzf.vim'
  Plug 'sonph/onehalf', { 'rtp': 'vim' }
  Plug 'morhetz/gruvbox' 								" colorscheme
+ Plug 'joshdick/onedark.vim' 
  Plug 'stevearc/vim-arduino'
- " Plug 'Raimondi/delimitMate'
+
  Plug 'jiangmiao/auto-pairs'
  Plug 'tpope/vim-surround'
  Plug 'puremourning/vimspector'
  Plug 'ilyachur/cmake4vim'
 
  Plug 'preservim/tagbar'
+ Plug 'preservim/nerdcommenter'
 
  " Plug 'folke/lsp-colors.nvim'
  " Plug 'kyazdani42/nvim-web-devicons'
@@ -157,6 +159,14 @@ let g:arduino_args = '--verbose'
 " let g:arduino_auto_baud = 1
 let g:arduino_serial_port = '/dev/ttyUSB0'
 let g:arduino_serial_port_globs = ['/dev/ttyUSB*']
+
+autocmd FileType arduino nnoremap <buffer> <leader>u :ArduinoUpload<CR>
+autocmd FileType arduino nnoremap <buffer> <leader>s :call Serial()<CR>
+
+function! Serial()
+    :! alacritty --command screen /dev/ttyUSB0 9600 
+endfunction
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -192,10 +202,14 @@ hi link jsonCommentError Comment
 hi link jsonComment Comment
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '<C-k>'
+
 syntax on
 set cursorline
-colorscheme onehalfdark
-colorscheme gruvbox
+" colorscheme onehalfdark
+" colorscheme gruvbox
+colorscheme onedark
 let g:gruvbox_guisp_fallback = 'bg'
 let g:airline_theme='onehalfdark'
 
