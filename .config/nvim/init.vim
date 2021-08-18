@@ -1,3 +1,6 @@
+source ~/documents/forks/nvim-vim-termbinds/autoload/vim_termbinds/readkeys.vim 
+source ~/documents/forks/nvim-vim-termbinds/plugin/termbindings.vim
+
 let g:arduino_telescope_enabled = 0
 set nocompatible
 
@@ -35,6 +38,7 @@ inoremap ( (<c-g>u
 inoremap ) )<c-g>u
 """"""""""""""""""
 
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " syntax on
 " filetype on
@@ -55,6 +59,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'junegunn/fzf.vim'
  Plug 'sonph/onehalf', { 'rtp': 'vim' }
  Plug 'morhetz/gruvbox' 								" colorscheme
+ Plug 'joshdick/onedark.vim' 
  Plug 'stevearc/vim-arduino'
  " Plug 'Raimondi/delimitMate'
  Plug 'jiangmiao/auto-pairs'
@@ -68,6 +73,8 @@ call plug#begin('~/.vim/plugged')
  Plug 'nvim-lua/popup.nvim'
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim'
+
+ Plug 'fannheyward/telescope-coc.nvim'
  """"""
 
  " Plug 'folke/lsp-colors.nvim'
@@ -76,6 +83,8 @@ call plug#begin('~/.vim/plugged')
 
  " Plug 'prabirshrestha/async.vim'
  " Plug 'prabirshrestha/vim-lsp'
+ Plug 'joechrisellis/nvim-vim-termbinds'
+ Plug 'markstory/vim-zoomwin'
 call plug#end()
 
 " Tagbar shortcut
@@ -103,6 +112,11 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
 " nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
+xmap <leader>f  <Plug>(coc-format-selected)
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -128,7 +142,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_next = '<C-l>'
 
 
 nmap <silent> <C-]> <Plug>(coc-definition)
@@ -166,6 +180,18 @@ let g:arduino_serial_port_globs = ['/dev/ttyUSB*']
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""    Telescope
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+require('telescope').load_extension('coc')
+EOF
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""    Debuger
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
@@ -199,8 +225,9 @@ hi link jsonComment Comment
 
 syntax on
 set cursorline
-colorscheme onehalfdark
-colorscheme gruvbox
+" colorscheme onehalfdark
+" colorscheme gruvbox
+colorscheme onedark
 let g:gruvbox_guisp_fallback = 'bg'
 let g:airline_theme='onehalfdark'
 
