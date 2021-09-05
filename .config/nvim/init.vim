@@ -1,8 +1,10 @@
-source ~/documents/forks/nvim-vim-termbinds/autoload/vim_termbinds/readkeys.vim 
-source ~/documents/forks/nvim-vim-termbinds/plugin/termbindings.vim
+if has("nvim")
+    source ~/documents/forks/nvim-vim-termbinds/autoload/vim_termbinds/readkeys.vim 
+    source ~/documents/forks/nvim-vim-termbinds/plugin/termbindings.vim
+endif
 
-let g:arduino_telescope_enabled = 0
 set nocompatible
+nnoremap Y yg_
 
 set updatetime=100
 
@@ -83,7 +85,8 @@ call plug#begin('~/.vim/plugged')
 
  " Plug 'prabirshrestha/async.vim'
  " Plug 'prabirshrestha/vim-lsp'
- Plug 'joechrisellis/nvim-vim-termbinds'
+
+ " Plug 'joechrisellis/nvim-vim-termbinds'
  Plug 'markstory/vim-zoomwin'
 call plug#end()
 
@@ -99,6 +102,13 @@ map <silent><space>t :TagbarToggle<CR>
 " let g:ycm_collect_identifiers_from_tags_files = 1
 " set completeopt-=preview
 " let g:ycm_show_diagnostics_ui = 0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""    Git
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <space>g :G<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

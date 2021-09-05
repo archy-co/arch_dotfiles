@@ -1,6 +1,8 @@
-let g:arduino_telescope_enabled = 0
+if !has('nvim')
+    let g:arduino_telescope_enabled = 0
+    set runtimepath=~/.vim,/usr/share/vim/vimfiles,/usr/share/vim/vim82
+endif
 set nocompatible
-set runtimepath=~/.vim,/usr/share/vim/vimfiles,/usr/share/vim/vim82
 
 set updatetime=100
 
