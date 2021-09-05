@@ -547,7 +547,7 @@ nnoremap ,gf :cd ~/.config/vifm<cr>
 nnoremap ,gc :cd ~/.config/<cr>
 nnoremap ,ge :cd ~/documents/fr<cr>
 nnoremap ,gd :cd ~/documents/UCU/DM/alu/l4logic<cr>
-nnoremap ,<space> :!zsh<cr>
+nnoremap ,gp :cd ~/.config/polybar<cr>
 
 highlight Win ctermbg=-1
 highlight Border ctermbg=-1

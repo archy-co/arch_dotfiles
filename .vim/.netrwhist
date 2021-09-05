@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/archy'
+let g:netrw_dirhist_0='/home/archy/documents/arch/win_xp/tint2'
+let g:netrw_dirhist_9='/home/archy/.git'
+let g:netrw_dirhist_8='/home/archy/documents/forks/nvim-vim-termbinds/autoload/vim_termbinds'
+let g:netrw_dirhist_7='/home/archy/blood-and-milk'
+let g:netrw_dirhist_6='/home/archy'
+let g:netrw_dirhist_5='/etc/rc.d'
+let g:netrw_dirhist_4='/home/archy/Downloads/course/source_code'
+let g:netrw_dirhist_3='/home/archy/Arduino/esp_blink'
+let g:netrw_dirhist_2='/home/archy/Downloads/course/source_code'

@@ -77,6 +77,7 @@ bindsym $mod+Print exec gnome-screenshot -f ~/pictures/screenshots/scr_shot_$(da
 bindsym $mod+Shift+Print exec gnome-screenshot -af ~/pictures/screenshots/scr_shot_$(date +%d-%m_%H:%M:%S).png
 
 for_window [class="popup"] floating enable, move absolute position 1690 px 60 px
+for_window [class="Pavucontrol"] floating enable
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -161,20 +162,21 @@ exec --no-startup-id touchegg
 # exec --no-startup-id stalonetray
 
 # conky
-# exec --no-startup-id ~/blood-and-milk/Application.sh
+exec_always --no-startup-id ~/blood-and-milk/Application.sh
 
 # background wallpapers feh
-exec_always --no-startup-id feh --bg-fill ~/pictures/Wallpapers/cyberpunk.jpg
+exec_always --no-startup-id feh --bg-fill ~/pictures/Wallpapers/cyberpunk.jpg --class feh_background
 
-for_window [class="feh"] floating enable, sticky enable, border pixel 0, move absolute position 0 px 0 px
+for_window [class="feh_background"] floating enable, sticky enable, border pixel 0, move absolute position 0 px 0 px
 
 
 # toggle keyboard layouts (add/remove ca)
 bindsym $mod+m exec ~/.scripts/toggle_layouts/toggle_layouts.sh
 
-# rofi, modern dmenu replacement:
+# rofi
 # bindcode $mod+40 exec rofi -modi drun,run -show drun
 bindsym $mod+d exec --no-startup-id rofi -show run
+# bindsym $mod exec --no-startup-id rofi -show run
 
 #bindsym $mod+e exec telegram-desktop
 bindsym $mod+w exec firefox
@@ -216,7 +218,9 @@ default_border pixel 0
 new_window pixel 0
 show_marks no
 exec_always border none
+exec_always i3-msg border pixel 0
 
+for_window [class=".*"] border pixel 0
 for_window [class=".*"] title_format "%title"
 
 

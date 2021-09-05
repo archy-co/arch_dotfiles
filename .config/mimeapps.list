@@ -1,5 +1,5 @@
 [Default Applications]
-inode/directory=ranger.desktop
+inode/directory=xvifm.desktop
 application/x-extension-htm=userapp-Firefox-R0B3FY.desktop
 application/x-extension-html=userapp-Firefox-R0B3FY.desktop
 application/x-extension-shtml=userapp-Firefox-R0B3FY.desktop
@@ -30,3 +30,5 @@ text/x-python=nvim.desktop;
 application/octet-stream=nvim.desktop;electron.desktop;feh.desktop;firefox.desktop;vim.desktop;
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 image/jpeg=sxiv.desktop;
+binary/octet-stream=xvim.desktop;
+text/html=firefox.desktop;xvim.desktop;

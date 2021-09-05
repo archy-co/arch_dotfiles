@@ -85,8 +85,12 @@ offset-x = 35.5%
 modules-left = mpd
 
 [bar/notifications]
-inherit = bar/base
-width = 2%
+radius = 0
+
+override-redirect=true
+
+wm-restack = i3
+width = 1.48%
 height = 33
 offset-y = 16
 
@@ -94,7 +98,7 @@ background = ${colors.black}
 
 padding-right = 0
 offset-x = 67.75%
-modules-center = xkeyboard
+modules-center = notifs
 ; Position of the system tray window
 ; If empty or undefined, tray support will be disabled
 ; NOTE: A center aligned tray will cover center aligned modules
@@ -117,7 +121,8 @@ tray-maxsize = 22
 ; ARGB color (e.g. #f00, #ff992a, #ddff1023)
 ; By default the tray container will use the bar
 ; background color.
-tray-background = ${color.background}
+tray-background = #00000000
+tray-foreground = #00000000
 
 ; Tray offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
 tray-offset-x = 0
@@ -128,6 +133,14 @@ tray-padding = 0
 
 ; Scale factor for tray clients
 tray-scale = 1.0
+
+
+[module/notifs]
+type = custom/text
+content = " "
+content-background = #00000000
+content-foreground = #00000000
+content-padding = 3
 
 
 [bar/options]
