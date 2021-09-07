@@ -221,7 +221,7 @@ label-unfocused-foreground = ${colors.color1}
 label-urgent =  
 label-urgent-font = 1
 label-urgent-padding = 1
-label-urgent-foreground = ${colors.dark}
+label-urgent-foreground = ${colors.color1}
 
 
 [module/power]

@@ -95,6 +95,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 
+bindsym $mod+u bar hidden_state toggle
+
 
 #exec_always "setxkbmap -layout us,ua -option grp:alt_shift_toggle"
 exec_always "setxkbmap -layout us,ua,ca -option grp:alt_shift_toggle"
@@ -162,7 +164,7 @@ exec --no-startup-id touchegg
 # exec --no-startup-id stalonetray
 
 # conky
-exec_always --no-startup-id ~/blood-and-milk/Application.sh
+# exec_always --no-startup-id ~/blood-and-milk/Application.sh
 
 # background wallpapers feh
 exec_always --no-startup-id feh --bg-fill ~/pictures/Wallpapers/cyberpunk.jpg --class feh_background
@@ -175,7 +177,7 @@ bindsym $mod+m exec ~/.scripts/toggle_layouts/toggle_layouts.sh
 
 # rofi
 # bindcode $mod+40 exec rofi -modi drun,run -show drun
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show drun
 # bindsym $mod exec --no-startup-id rofi -show run
 
 #bindsym $mod+e exec telegram-desktop
@@ -214,14 +216,15 @@ gaps outer 1
 gaps top 50
 
 
-default_border pixel 0
-new_window pixel 0
-show_marks no
+default_border normal 2
+default_floating_border normal 2
 exec_always border none
 exec_always i3-msg border pixel 0
 
-for_window [class=".*"] border pixel 0
-for_window [class=".*"] title_format "%title"
+#for_window [class=".*"] border pixel 0
+# DOESN'T WORK :(
+for_window [class=".*"] title_window_icon on
+for_window [class=".*"] title_window_icon padding 3px
 
 
 # class                 border  backgr. text    indicator child_border

@@ -69,6 +69,10 @@ call plug#begin('~/.vim/plugged')
  Plug 'preservim/tagbar'
  Plug 'preservim/nerdcommenter'
 
+
+ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
  " Plug 'folke/lsp-colors.nvim'
  " Plug 'kyazdani42/nvim-web-devicons'
  " Plug 'folke/trouble.nvim'
@@ -209,6 +213,9 @@ let g:AutoPairsShortcutBackInsert = '<C-k>'
 
 syntax on
 set cursorline
+
+autocmd BufEnter *.rasi :set filetype=css
+
 " colorscheme onehalfdark
 " colorscheme gruvbox
 colorscheme onedark
