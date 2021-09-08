@@ -216,8 +216,8 @@ gaps outer 1
 gaps top 50
 
 
-default_border normal 2
-default_floating_border normal 2
+default_border pixel 2
+default_floating_border pixel 2
 exec_always border none
 exec_always i3-msg border pixel 0
 
@@ -229,8 +229,8 @@ for_window [class=".*"] title_window_icon padding 3px
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #181e1c #00ffae #000000 #fc4649   #00ffae
-client.focused_inactive #181e1c #00ffae #000000 #fc4649   #00ffae
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.focused_inactive #ca14fc #00ffae #000000 #fc4649   #00ffae
+client.unfocused        #ca14fc #222222 #888888 #292d2e   #ca14fc
 client.urgent           #2f343a #fc4649 #ffffff #fc4649   #fc4649
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 

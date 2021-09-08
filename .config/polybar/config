@@ -145,7 +145,7 @@ content-padding = 3
 
 [bar/options]
 inherit = bar/base
-width = 4.5%
+width = 4.4%
 
 background = ${colors.black}
 
@@ -393,14 +393,22 @@ ramp-foreground = ${colors.color3}
 type = internal/xkeyboard
 blacklist-0 = num lock
 
+format = <label-layout><label-indicator>
+
+format-padding = 2
+
+
 format-prefix = ""
 format-prefix-foreground = ${colors.color1}
 format-width = 45
 
-label-layout = "%layout:4:4% "
+label-indicator = •
+label-indicator-foreground = ${colors.color1}
+
+label-layout = "%layout:2:2%"
 label-layout-foreground = ${colors.color1}
-label-indicator-padding = 1
-label-indicator-margin = 1
+label-indicator-padding = 0
+;label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
