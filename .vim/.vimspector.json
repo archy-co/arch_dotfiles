@@ -1,0 +1,26 @@
+{
+  "configurations": {
+    "cpptools": {
+      "adapter": "vscode-cpptools",
+      "configuration": {
+        "request": "launch",
+        "program": "${workspaceRoot}/a.out",
+        "MIMode": "gdb"
+      }
+    },
+    "debugpy": {
+      "adapter": "debugpy",
+      "configuration": {
+        "name": "<name>: Launch",
+        "type": "python",
+        "request": "launch",
+        "cwd": "./",
+        "python": "/usr/bin/python",
+        "stopOnEntry": true,
+        "console": "externalTerminal",
+        "debugOptions": [],
+        "program": "main.py"
+      }
+    }
+  }
+}

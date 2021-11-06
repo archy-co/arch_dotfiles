@@ -1,0 +1,12 @@
+{
+    "diagnostic.checkCurrentLine": true,
+	"languageserver":{
+		"arduino":{
+			"command":"/home/archy/Downloads/arduino-language-server/arduino-language-server",
+			"rootPatterns":["*.ino"],
+			"filetypes":["arduino"],
+			"args":["-cli", "/usr/bin/arduino-cli", "-clangd", "/usr/bin/clangd", "-cli-config", "/home/archy/.vim/arduino-cli.yaml"]
+	  }
+  },
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd"
+}

@@ -53,9 +53,8 @@ endif
 map <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 
-augroup filetypedetect
-  au! BufRead,BufNewFile,BufEnter vifmrc :set filetype=vim
-augroup END
+autocmd BufRead,BufNewFile,BufEnter vifmrc :set filetype=vim
+autocmd BufRead,BufNewFile,BufEnter *.asm  :set filetype=asm
 
 augroup compile_code
     "au! FileType cpp nnoremap <space>c :!g++ %<CR><CR>
