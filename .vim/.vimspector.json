@@ -17,6 +17,7 @@
         "cwd": "./",
         "python": "/usr/bin/python",
         "stopOnEntry": true,
+        "uncaught": false,
         "console": "externalTerminal",
         "debugOptions": [],
         "program": "main.py"

@@ -10,52 +10,56 @@ if has("nvim")
     nnoremap <space>fb <cmd>Telescope buffers<cr>
     nnoremap <leader>f <cmd>Telescope lsp_range_code_actions<cr>
 
+
 lua << EOF
 
-    vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-
+    -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
     -- Showing defaults
-    require'nvim-lightbulb'.update_lightbulb {
-        sign = {
-            enabled = true,
-            -- Priority of the gutter sign
-            priority = 10,
-        },
-        float = {
-            enabled = false,
-            -- Text to show in the popup float
-            text = "*",
-            -- Available keys for window options:
-            -- - height     of floating window
-            -- - width      of floating window
-            -- - wrap_at    character to wrap at for computing height
-            -- - max_width  maximal width of floating window
-            -- - max_height maximal height of floating window
-            -- - pad_left   number of columns to pad contents at left
-            -- - pad_right  number of columns to pad contents at right
-            -- - pad_top    number of lines to pad contents at top
-            -- - pad_bottom number of lines to pad contents at bottom
-            -- - offset_x   x-axis offset of the floating window
-            -- - offset_y   y-axis offset of the floating window
-            -- - anchor     corner of float to place at the cursor (NW, NE, SW, SE)
-            -- - winblend   transparency of the window (0-100)
-            win_opts = {},
-        },
-        virtual_text = {
-            enabled = false,
-            -- Text to show at virtual text
-            text = "*",
-            -- highlight mode to use for virtual text (replace, combine, blend), see :help nvim_buf_set_extmark() for reference
-            hl_mode = "replace",
-        },
-        status_text = {
-            enabled = false,
-            -- Text to provide when code actions are available
-            text = "*",
-            -- Text to provide when no actions are available
-            text_unavailable = "-"
-        }
-    }
+    -- require'nvim-lightbulb'.update_lightbulb {
+    --     sign = {
+    --         enabled = true,
+    --         -- Priority of the gutter sign
+    --         priority = 10,
+    --     },
+    --     float = {
+    --         enabled = false,
+    --         -- Text to show in the popup float
+    --         text = "*",
+    --         -- Available keys for window options:
+    --         -- - height     of floating window
+    --         -- - width      of floating window
+    --         -- - wrap_at    character to wrap at for computing height
+    --         -- - max_width  maximal width of floating window
+    --         -- - max_height maximal height of floating window
+    --         -- - pad_left   number of columns to pad contents at left
+    --         -- - pad_right  number of columns to pad contents at right
+    --         -- - pad_top    number of lines to pad contents at top
+    --         -- - pad_bottom number of lines to pad contents at bottom
+    --         -- - offset_x   x-axis offset of the floating window
+    --         -- - offset_y   y-axis offset of the floating window
+    --         -- - anchor     corner of float to place at the cursor (NW, NE, SW, SE)
+    --         -- - winblend   transparency of the window (0-100)
+    --         win_opts = {},
+    --     },
+    --     virtual_text = {
+    --         enabled = false,
+    --         -- Text to show at virtual text
+    --         text = "*",
+    --         -- highlight mode to use for virtual text (replace, combine, blend), see :help nvim_buf_set_extmark() for reference
+    --         hl_mode = "replace",
+    --     },
+    --     status_text = {
+    --         enabled = false,
+    --         -- Text to provide when code actions are available
+    --         text = "*",
+    --         -- Text to provide when no actions are available
+    --         text_unavailable = "-"
+    --     }
+    -- }
+
+
+
+
 
 
     local nvim_lsp = require('lspconfig')
@@ -109,6 +113,122 @@ lua << EOF
       },
     }
 
+    -- Setup nvim-cmp.
+    local cmp = require'cmp'
+
+    local luasnip = require('luasnip')
+    
+    cmp.setup({
+      snippet = {
+        -- REQUIRED - you must specify a snippet engine
+        expand = function(args)
+          luasnip.lsp_expand(args.body) -- For `luasnip` users.
+        end,
+      },
+      mapping = {
+        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+        ['<C-e>'] = cmp.mapping({
+          i = cmp.mapping.abort(),
+          c = cmp.mapping.close(),
+        }),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+      },
+      sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' }, -- For luasnip users.
+        { name = 'path' },
+      -- }, {
+      --   { name = 'buffer' },
+      })
+    })
+    
+    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline('/', {
+      sources = {
+        { name = 'buffer' }
+      }
+    })
+    
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(':', {
+      sources = cmp.config.sources({
+        { name = 'path' }
+      },
+      {
+        { name = 'cmdline' }
+      })
+    })
+    
+    -- Setup lspconfig.
+    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+    -- local system_name = "Linux"
+    -- -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
+    -- local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
+    -- local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+
+    -- local runtime_path = vim.split(package.path, ';')
+    -- table.insert(runtime_path, "lua/?.lua")
+    -- table.insert(runtime_path, "lua/?/init.lua")
+
+    -- nvim_lsp.sumneko_lua.setup {
+    --   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+    --   settings = {
+    --     Lua = {
+    --       runtime = {
+    --         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+    --         version = 'LuaJIT',
+    --         -- Setup your lua path
+    --         path = runtime_path,
+    --       },
+    --       diagnostics = {
+    --         -- Get the language server to recognize the `vim` global
+    --         globals = {'vim'},
+    --       },
+    --       workspace = {
+    --         -- Make the server aware of Neovim runtime files
+    --         library = vim.api.nvim_get_runtime_file("", true),
+    --       },
+    --       -- Do not send telemetry data containing a randomized but unique identifier
+    --       telemetry = {
+    --         enable = false,
+    --       },
+    --     },
+    --   },
+    -- }
+
+
+    -- nvim_lsp.clangd.setup {
+    --     on_attach = on_attach,
+    --     capabilities = capabilities,
+    -- }
+
+
     -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
     -- require'lspconfig'.java_language_server.setup{cmd = { '/usr/bin/java-language-server' }}
     local servers = { 'clangd', 'jedi_language_server', 'jdtls' }
@@ -119,105 +239,7 @@ lua << EOF
       }
     end
 
-    -- Set completeopt to have a better completion experience
-    vim.o.completeopt = 'menuone,noselect'
-
-    -- luasnip setup
-    local luasnip = require 'luasnip'
-
-    -- nvim-cmp setup
-    local cmp = require 'cmp'
-    cmp.setup {
-      snippet = {
-        expand = function(args)
-          require('luasnip').lsp_expand(args.body)
-        end,
-      },
-      mapping = {
-        ['<Shift-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm {
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        },
-        ['<Tab>'] = function(fallback)
-          if vim.fn.pumvisible() == 1 then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
-          elseif luasnip.expand_or_jumpable() then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
-          else
-            fallback()
-          end
-        end,
-        ['<S-Tab>'] = function(fallback)
-          if vim.fn.pumvisible() == 1 then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
-          elseif luasnip.jumpable(-1) then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
-          else
-            fallback()
-          end
-        end,
-      },
-      sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-      },
-    }
-
-    --require'lspconfig'.jedi_language_server.setup{
-    --    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-    --}
-
-    local system_name
-    if vim.fn.has("mac") == 1 then
-      system_name = "macOS"
-    elseif vim.fn.has("unix") == 1 then
-      system_name = "Linux"
-    elseif vim.fn.has('win32') == 1 then
-      system_name = "Windows"
-    else
-      print("Unsupported system for sumneko")
-    end
-
-    -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
-    local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
-    local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
-
-    local runtime_path = vim.split(package.path, ';')
-    table.insert(runtime_path, "lua/?.lua")
-    table.insert(runtime_path, "lua/?/init.lua")
-
-    require'lspconfig'.sumneko_lua.setup {
-      cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-      settings = {
-        Lua = {
-          runtime = {
-            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = 'LuaJIT',
-            -- Setup your lua path
-            path = runtime_path,
-          },
-          diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = {'vim'},
-          },
-          workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
-          },
-          -- Do not send telemetry data containing a randomized but unique identifier
-          telemetry = {
-            enable = false,
-          },
-        },
-      },
-    }
-
 EOF
-    autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+    " autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+    autocmd CursorHold,CursorHoldI * lua require('code_action_utils').code_action_listener()
 endif

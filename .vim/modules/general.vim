@@ -25,6 +25,11 @@ set splitright
 nnoremap ^] <Nop>
 nnoremap Y yg_
 vnoremap $ $h
+noremap ci( f(ci(
+" inoremap <Esc> <Esc>:sleep 1<Cr>:echo "Only noobs use Esc!"<CR>li
+" inoremap <Esc> <Nop>
+
+nnoremap <nowait>cc cc
 
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
@@ -64,3 +69,6 @@ augroup compile_code
                        nnoremap <space>cb :CMakeBuild<CR>\
                        nnoremap <space>cc :CMakeClose<CR>
 augroup END
+
+set completeopt=menu,menuone,noselect
+

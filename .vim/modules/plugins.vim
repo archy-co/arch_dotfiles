@@ -1,4 +1,19 @@
 call plug#begin('~/.vim/plugged')
+
+  " use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
+  " use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
+  " use 'ludovicchabant/vim-gutentags' -- Automatic tags management
+  " use 'itchyny/lightline.vim' -- Fancier statusline
+  " -- Add indentation guides even on blank lines
+  " use 'lukas-reineke/indent-blankline.nvim'
+  " -- Add git related info in the signs columns and popups
+  " use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  " -- Highlight, edit, and navigate code using a fast incremental parsing library
+  " use 'nvim-treesitter/nvim-treesitter'
+
+  " -- Additional textobjects for treesitter
+  " use 'nvim-treesitter/nvim-treesitter-textobjects'
+
     Plug 'tpope/vim-sensible'
     Plug 'vim-airline/vim-airline'
     Plug 'airblade/vim-gitgutter'
@@ -8,7 +23,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'sonph/onehalf', { 'rtp': 'vim' }
     Plug 'morhetz/gruvbox' 								" colorscheme
     Plug 'joshdick/onedark.vim' 
-    Plug 'stevearc/vim-arduino'
+    Plug 'mountain-theme/Mountain', {'rtp':'vim'}
+
+    " Plug 'stevearc/vim-arduino'
     
     Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-surround'
@@ -33,6 +50,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'sheerun/vim-polyglot'                         " improved syntax hightlight
     Plug 'pineapplegiant/spaceduck'
 
+    Plug 'junegunn/goyo.vim'
+
+    Plug 'github/copilot.vim'
+
     if has("nvim")
         " Telescope
         Plug 'nvim-lua/plenary.nvim'
@@ -43,12 +64,15 @@ call plug#begin('~/.vim/plugged')
         Plug 'hrsh7th/cmp-nvim-lsp'
         Plug 'hrsh7th/cmp-buffer'
         Plug 'hrsh7th/nvim-cmp'
-        Plug 'kosayoda/nvim-lightbulb'
-        Plug 'mfussenegger/nvim-jdtls'
+        Plug 'hrsh7th/cmp-path'
+        Plug 'hrsh7th/cmp-cmdline'
 
         " luasnip sniffets
         Plug 'L3MON4D3/LuaSnip'
         Plug 'saadparwaiz1/cmp_luasnip'
+
+        Plug 'kosayoda/nvim-lightbulb'
+        Plug 'mfussenegger/nvim-jdtls'
     endif
 
     "if !has("nvim")
@@ -217,4 +241,11 @@ augroup fern-settings
   autocmd!
   autocmd FileType fern call s:fern_settings()
 augroup END
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""    CMake
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:cmake_build_options = ['-DCMAKE_EXPORT_COMPILE_COMMANDS=1']
+let g:cmake_console_size = 9 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
