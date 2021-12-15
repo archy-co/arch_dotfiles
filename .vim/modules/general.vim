@@ -25,7 +25,7 @@ set splitright
 nnoremap ^] <Nop>
 nnoremap Y yg_
 vnoremap $ $h
-noremap ci( f(ci(
+" noremap ci( f(ci(
 " inoremap <Esc> <Esc>:sleep 1<Cr>:echo "Only noobs use Esc!"<CR>li
 " inoremap <Esc> <Nop>
 

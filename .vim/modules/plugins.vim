@@ -51,6 +51,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'pineapplegiant/spaceduck'
 
     Plug 'junegunn/goyo.vim'
+    Plug 'tribela/vim-transparent'
 
     Plug 'github/copilot.vim'
 
@@ -223,8 +224,8 @@ hi link jsonComment Comment
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <space>g :G<CR>
 
-nmap <space>s :diffget //3<CR>
-nmap <space>l :diffget //2<CR>
+nmap <space>l :diffget //3<CR>
+nmap <space>s :diffget //2<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

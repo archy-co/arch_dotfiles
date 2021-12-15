@@ -5,7 +5,15 @@
       "configuration": {
         "request": "launch",
         "program": "${workspaceRoot}/a.out",
-        "MIMode": "gdb"
+        "MIMode": "gdb",
+        "args": ["< in1.txt"],
+        "setupCommands": [
+          {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ]
       }
     },
     "debugpy": {
