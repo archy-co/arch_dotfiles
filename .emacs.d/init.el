@@ -6,8 +6,12 @@
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(custom-enabled-themes '(deeper-blue))
- '(display-line-numbers 'visual)
- '(package-selected-packages '(flycheck-irony company irony-eldoc irony)))
+ '(dired-listing-switches "-l")
+ '(display-line-numbers t)
+ '(irony-lighter " Irony Running")
+ '(package-selected-packages
+   '(eldoc zweilight-theme company-irony flycheck-irony company irony-eldoc irony))
+ '(x-gtk-show-hidden-files nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -26,14 +30,21 @@
 					; Packages installed:
 					; irony
 					; flycheck-irony
-
+                    ; company-irony
+                    ; irony-eldoc
 
 ; Irony-mode clang lsp for c and c++
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 
 ; Syntax checking
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+
+(add-hook 'irony-mode-hook #'irony-eldoc)
 
