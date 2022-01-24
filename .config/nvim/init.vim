@@ -60,6 +60,12 @@ lua << EOF
 
 
 
+    local has_words_before = function()
+      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    end
+
+
 
 
     local nvim_lsp = require('lspconfig')
@@ -136,7 +142,8 @@ lua << EOF
         }),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
-        ["<Tab>"] = cmp.mapping(function(fallback)
+
+        ["<C-l>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.expand_or_jumpable() then
@@ -148,7 +155,7 @@ lua << EOF
           end
         end, { "i", "s" }),
 
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        ["<C-S-l>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.jumpable(-1) then
@@ -157,6 +164,38 @@ lua << EOF
             fallback()
           end
         end, { "i", "s" }),
+
+        -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+        --   if cmp.visible() then
+        --     cmp.select_prev_item()
+        --   elseif luasnip.jumpable(-1) then
+        --     luasnip.jump(-1)
+        --   else
+        --     fallback()
+        --   end
+        -- end, { "i", "s" }),
+
+        --["<Tab>"] = cmp.mapping(function(fallback)
+        --  if cmp.visible() then
+        --    cmp.select_next_item()
+        --  elseif luasnip.expand_or_jumpable() then
+        --    luasnip.expand_or_jump()
+        --  elseif has_words_before() then
+        --    cmp.complete()
+        --  else
+        --    fallback()
+        --  end
+        --end, { "i", "s" }),
+
+        --["<S-Tab>"] = cmp.mapping(function(fallback)
+        --  if cmp.visible() then
+        --    cmp.select_prev_item()
+        --  elseif luasnip.jumpable(-1) then
+        --    luasnip.jump(-1)
+        --  else
+        --    fallback()
+        --  end
+        --end, { "i", "s" }),
       },
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
@@ -187,40 +226,40 @@ lua << EOF
     -- Setup lspconfig.
     local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-    -- local system_name = "Linux"
+    local system_name = "Linux"
     -- -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
-    -- local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
-    -- local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+    local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
+    local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
 
-    -- local runtime_path = vim.split(package.path, ';')
-    -- table.insert(runtime_path, "lua/?.lua")
-    -- table.insert(runtime_path, "lua/?/init.lua")
+    local runtime_path = vim.split(package.path, ';')
+    table.insert(runtime_path, "lua/?.lua")
+    table.insert(runtime_path, "lua/?/init.lua")
 
-    -- nvim_lsp.sumneko_lua.setup {
-    --   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-    --   settings = {
-    --     Lua = {
-    --       runtime = {
-    --         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-    --         version = 'LuaJIT',
-    --         -- Setup your lua path
-    --         path = runtime_path,
-    --       },
-    --       diagnostics = {
-    --         -- Get the language server to recognize the `vim` global
-    --         globals = {'vim'},
-    --       },
-    --       workspace = {
-    --         -- Make the server aware of Neovim runtime files
-    --         library = vim.api.nvim_get_runtime_file("", true),
-    --       },
-    --       -- Do not send telemetry data containing a randomized but unique identifier
-    --       telemetry = {
-    --         enable = false,
-    --       },
-    --     },
-    --   },
-    -- }
+    nvim_lsp.sumneko_lua.setup {
+      cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+      settings = {
+        Lua = {
+          runtime = {
+            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            version = 'LuaJIT',
+            -- Setup your lua path
+            path = runtime_path,
+          },
+          diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = {'vim'},
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
+          -- Do not send telemetry data containing a randomized but unique identifier
+          telemetry = {
+            enable = false,
+          },
+        },
+      },
+    }
 
 
     -- nvim_lsp.clangd.setup {

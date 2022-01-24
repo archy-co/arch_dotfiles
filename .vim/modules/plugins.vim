@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'sonph/onehalf', { 'rtp': 'vim' }
     Plug 'morhetz/gruvbox' 								" colorscheme
     Plug 'joshdick/onedark.vim' 
+    Plug 'arcticicestudio/nord-vim'
     Plug 'mountain-theme/Mountain', {'rtp':'vim'}
 
     " Plug 'stevearc/vim-arduino'
