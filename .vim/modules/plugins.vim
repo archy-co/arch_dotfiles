@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'tpope/vim-sensible'
     Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -25,12 +26,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'joshdick/onedark.vim' 
     Plug 'arcticicestudio/nord-vim'
     Plug 'mountain-theme/Mountain', {'rtp':'vim'}
+    Plug 'fcpg/vim-orbital'
 
     " Plug 'stevearc/vim-arduino'
     
     Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-surround'
     "Plug 'ilyachur/cmake4vim'
+
+    Plug 'Yggdroot/indentLine'
     
     Plug 'preservim/tagbar'
     Plug 'preservim/nerdcommenter'
@@ -90,8 +94,8 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme onedark
-let g:airline_theme = 'onedark'
+colorscheme orbital
+let g:airline_theme = 'behelit'
 
 " let g:gruvbox_guisp_fallback = 'bg'
 
@@ -250,4 +254,15 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:cmake_build_options = ['-DCMAKE_EXPORT_COMPILE_COMMANDS=1']
 let g:cmake_console_size = 9 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""    IndentLine
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim
+let g:indentLine_color_term = 239
+
+" Background
+let g:indentLine_bgcolor_term = 202
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
