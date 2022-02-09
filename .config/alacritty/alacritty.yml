@@ -30,7 +30,7 @@ window:
   # Number of lines/columns (not pixels) in the terminal. The number of columns
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
-  opacity: 0.8
+  opacity: 0.9
 
   dimensions:
     columns: 90
@@ -157,9 +157,9 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    foreground: '#dddddd'
+    foreground: '#0cccf7'
     #background: '#262b30'
-    background: '#222222'
+    background: '#0c0e0f'
 
     dim_foreground: '#eff0f1'
     bright_foreground: '#ffffff'
