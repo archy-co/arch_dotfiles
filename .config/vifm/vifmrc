@@ -373,13 +373,6 @@ filextype */
 " 16-color terminal
 " fileviewer *.c,*.h highlight -O ansi -s dante %c
 
-highlight Win ctermbg=-1
-highlight Border ctermbg=-1
-highlight CmdLine ctermbg=-1
-highlight TopLine ctermbg=-1 ctermfg=lightblue
-highlight TopLineSel ctermbg=-1 ctermfg=lightblue
-highlight StatusLine ctermbg=-1 ctermfg=lightcoral
-
 nnoremap gc :cd ~/.config<cr>
 nnoremap go :cd ~/.config/awesome<cr>
 nnoremap gh :cd ~<cr>
@@ -528,3 +521,7 @@ nnoremap <c-d> :!dragon-drag-and-drop -a -x %f & <cr>
 "     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
 "
 " let $VIFM_SERVER_NAME = v:servername
+"colorscheme Default-256 Default
+
+
+source ~/.config/vifm/colors.vim

@@ -14,76 +14,74 @@ call plug#begin('~/.vim/plugged')
   " -- Additional textobjects for treesitter
   " use 'nvim-treesitter/nvim-treesitter-textobjects'
 
-    Plug 'tpope/vim-sensible'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'tpope/vim-fugitive'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'sonph/onehalf', { 'rtp': 'vim' }
-    Plug 'morhetz/gruvbox' 								" colorscheme
-    Plug 'joshdick/onedark.vim' 
-    Plug 'arcticicestudio/nord-vim'
-    Plug 'mountain-theme/Mountain', {'rtp':'vim'}
-    Plug 'fcpg/vim-orbital'
+  Plug 'tpope/vim-sensible'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'sonph/onehalf', { 'rtp': 'vim' }
+  Plug 'morhetz/gruvbox' 								" colorscheme
+  Plug 'joshdick/onedark.vim'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'mountain-theme/Mountain', {'rtp':'vim'}
+  Plug 'fcpg/vim-orbital'
 
-    " Plug 'stevearc/vim-arduino'
-    
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'tpope/vim-surround'
-    "Plug 'ilyachur/cmake4vim'
+  " Plug 'stevearc/vim-arduino'
 
-    Plug 'Yggdroot/indentLine'
-    
-    Plug 'preservim/tagbar'
-    Plug 'preservim/nerdcommenter'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-surround'
+  "Plug 'ilyachur/cmake4vim'
 
-    if !has("nvim")
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    endif
+  Plug 'Yggdroot/indentLine'
 
-    Plug 'markstory/vim-zoomwin'
-    Plug 'cdelledonne/vim-cmake'
-    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+  Plug 'preservim/tagbar'
+  Plug 'preservim/nerdcommenter'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
-    Plug 'lambdalisue/fern.vim'
-    Plug 'yuki-yano/fern-preview.vim'
+  if !has("nvim")
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  endif
 
-    Plug 'zah/nim.vim' 
-    Plug 'sheerun/vim-polyglot'                         " improved syntax hightlight
-    Plug 'pineapplegiant/spaceduck'
+  Plug 'markstory/vim-zoomwin'
+  Plug 'cdelledonne/vim-cmake'
+  Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-    Plug 'junegunn/goyo.vim'
-    Plug 'tribela/vim-transparent'
+  Plug 'lambdalisue/fern.vim'
+  Plug 'yuki-yano/fern-preview.vim'
 
-    Plug 'github/copilot.vim'
+  Plug 'zah/nim.vim'
+  Plug 'sheerun/vim-polyglot'                         " improved syntax hightlight
+  Plug 'pineapplegiant/spaceduck'
 
-    if has("nvim")
-        " Telescope
-        Plug 'nvim-lua/plenary.nvim'
-        Plug 'nvim-telescope/telescope.nvim'
+  Plug 'junegunn/goyo.vim'
+  Plug 'tribela/vim-transparent'
 
-        " nvim lsp and autocompletion
-        Plug 'neovim/nvim-lspconfig'
-        Plug 'hrsh7th/cmp-nvim-lsp'
-        Plug 'hrsh7th/cmp-buffer'
-        Plug 'hrsh7th/nvim-cmp'
-        Plug 'hrsh7th/cmp-path'
-        Plug 'hrsh7th/cmp-cmdline'
+  Plug 'github/copilot.vim'
 
-        " luasnip sniffets
-        Plug 'L3MON4D3/LuaSnip'
-        Plug 'saadparwaiz1/cmp_luasnip'
+  Plug 'AndrewRadev/sideways.vim '
 
-        Plug 'kosayoda/nvim-lightbulb'
-        Plug 'mfussenegger/nvim-jdtls'
-    endif
+  if has("nvim")
+    " Telescope
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
 
-    "if !has("nvim")
-    "
-    "endif
+    " nvim lsp and autocompletion
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+
+    " luasnip sniffets
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'saadparwaiz1/cmp_luasnip'
+
+    Plug 'kosayoda/nvim-lightbulb'
+    Plug 'mfussenegger/nvim-jdtls'
+  endif
 
 call plug#end()
 
@@ -94,17 +92,19 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme orbital
-let g:airline_theme = 'behelit'
-
-" let g:gruvbox_guisp_fallback = 'bg'
+" Colors
+source ~/.vim/modules/colors.vim
 
 let g:Hexokinase_ftEnabled = ['yaml']
 
-map <silent><space>t :TagbarToggle<CR>
+map <silent><space>t :TagbarToggle f<CR>
 
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<C-k>'
+
+
+
+nnoremap <c-h> :SidewaysLeft<cr>
 
 
 if !has("nvim")
@@ -158,14 +158,14 @@ endif
 """""    Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! ResizeStatus(...)
-    let builder = a:1
-    let context = a:2
-    if g:is_resize == 1
-        call builder.add_section('airline_b', ' RESIZE ')
-    elseif g:is_resize == 0 
-        call builder.add_section('airline_b', '')
-    endif
-    return 0
+  let builder = a:1
+  let context = a:2
+  if g:is_resize == 1
+    call builder.add_section('airline_b', ' RESIZE ')
+  elseif g:is_resize == 0
+    call builder.add_section('airline_b', '')
+  endif
+  return 0
 endfunction
 
 silent call airline#add_statusline_func('ResizeStatus')
@@ -185,7 +185,7 @@ autocmd FileType arduino nnoremap <buffer> <leader>u :ArduinoUpload<CR>
 autocmd FileType arduino nnoremap <buffer> <leader>s :call Serial()<CR>
 
 function! Serial()
-    :! alacritty --command screen /dev/ttyUSB0 9600 
+  :! alacritty --command screen /dev/ttyUSB0 9600
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -197,24 +197,25 @@ endfunction
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 nnoremap <leader>K <Plug>VimspectorBalloonEval
 nnoremap <F4> :VimspectorReset <CR>
+nnoremap <F3> :call vimspector#ClearBreakpoints() <CR>
 packadd! vimspector
 
 map <silent><space>d :call GenerateConfig()<CR>
 function! GenerateConfig ()
-    if !filereadable('./.vimspector.json')
-        echo 'No config file, generating...'
-        :! cp /home/archy/.vim/.vimspector.json ./
-    else
-        echo 'Config file already exists. Delete it if you want to have a new one.'
-    endif
+  if !filereadable('./.vimspector.json')
+    echo 'No config file, generating...'
+    :! cp /home/archy/.vim/.vimspector.json ./
+  else
+    echo 'Config file already exists. Delete it if you want to have a new one.'
+  endif
 endfunction
 
 
 let g:vimspector_sign_priority = {
-  \    'vimspectorBP':         999,
-  \    'vimspectorBPCond':     998,
-  \    'vimspectorBPDisabled': 997,
-  \ }
+      \    'vimspectorBP':         999,
+      \    'vimspectorBPCond':     998,
+      \    'vimspectorBPDisabled': 997,
+      \ }
 
 
 " json comments highlight
@@ -253,7 +254,17 @@ augroup END
 """""    CMake
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:cmake_build_options = ['-DCMAKE_EXPORT_COMPILE_COMMANDS=1']
-let g:cmake_console_size = 9 
+let g:cmake_console_size = 9
+
+map <silent><space>m :call GenerateCMake()<CR>
+function! GenerateCMake ()
+  if !filereadable('./CMakeLists.txt')
+    echo 'No cmake found, generating...'
+    :! cp /home/archy/.vim/CMakeLists.txt ./
+  else
+    echo 'CMake already exists. Delete it if you want to have a new one.'
+  endif
+endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

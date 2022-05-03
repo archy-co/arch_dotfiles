@@ -1,0 +1,14 @@
+#! /usr/bin/bash
+
+if [[ $1 == 'light' ]]; then
+    cp ~/.vim/modules/colors_light.vim ~/.vim/modules/colors.vim
+    cp ~/.config/vifm/colors_light.vim ~/.config/vifm/colors.vim
+    cp ~/.config/alacritty/alacritty_light.yml ~/.config/alacritty/alacritty.yml
+elif [[ $1 == 'dark' ]]; then
+    cp ~/.vim/modules/colors_dark.vim ~/.vim/modules/colors.vim
+    cp ~/.config/vifm/colors_dark.vim ~/.config/vifm/colors.vim
+    cp ~/.config/alacritty/alacritty_dark.yml ~/.config/alacritty/alacritty.yml
+else 
+    echo "Usage: ricelike <light|dark>"
+fi
+
