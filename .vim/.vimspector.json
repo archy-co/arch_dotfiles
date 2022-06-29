@@ -4,9 +4,9 @@
       "adapter": "vscode-cpptools",
       "configuration": {
         "request": "launch",
-        "program": "${workspaceRoot}/a.out",
+        "program": "${workspaceRoot}/bin/program",
         "MIMode": "gdb",
-        "args": ["< in1.txt"],
+        "args": ["config.cfg"],
         "setupCommands": [
           {
             "description": "Enable pretty-printing for gdb",
@@ -15,7 +15,8 @@
           }
         ]
       }
-    },
+    }
+    ,
     "debugpy": {
       "adapter": "debugpy",
       "configuration": {
@@ -31,5 +32,6 @@
         "program": "main.py"
       }
     }
+
   }
 }
