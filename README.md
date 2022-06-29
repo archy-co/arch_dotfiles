@@ -1,4 +1,4 @@
 # Arch + Awesome WM config
-> My dotfiles, having configurations of my programs 
+> My dotfiles, having configurations of programs I use for awesome WM. For WM configurations there's a separate repo
 
-On other branches there are my old system configurations
+Other branches contain old configurations, e.g. for i3
